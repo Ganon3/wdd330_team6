@@ -1,13 +1,24 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  const cartItems = getLocalStorage('so-cart');
+  
+  // checks if cart is empty
+  if (!cartItems || cartItems.length === 0) {
+    document.querySelector('.product-list').innerHTML = '<li>Your cart is empty</li>';
+    return;
+  }
+
+  // this is what adds the item to the cart
+  const cartArray = Array.isArray(cartItems) ? cartItems : [cartItems];
+  
+  const htmlItems = cartArray.map((item) => cartItemTemplate(item));
+  document.querySelector('.product-list').innerHTML = htmlItems.join('');
+
 }
 
 function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
+const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -21,8 +32,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
-  return newItem;
+return newItem;
 }
 
 renderCartContents();
