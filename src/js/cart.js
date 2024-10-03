@@ -11,7 +11,7 @@ function renderCartContents() {
   }
 
   // this is what adds the item to the cart
-  const cartArray = Array.isArray(cartItems) ? cartItems : [cartItems];
+  const cartArray = [].concat(cartItems);
 
   const htmlItems = cartArray.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
