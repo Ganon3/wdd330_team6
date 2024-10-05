@@ -3,8 +3,8 @@ import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
 
+// added Team Activity 2
 const productId = getParam("product");
-console.log(findProductById(productId));
 productDetails(productId);
 
 function addProductToCart(product) {
@@ -32,8 +32,8 @@ function renderCartContents() {
 }
 
 renderCartContents();
-// add listener to Add to Cart button !! This line was broken
 
+// add listener to Add to Cart button
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
