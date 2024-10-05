@@ -59,12 +59,9 @@
         <h2>My Cart</h2>
 
         <ul class="product-list">
-          <!-- <li class="cart-card divider">
+          <!-- <li id="1308" class="cart-card divider">
             <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
-              <img
-                src="images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg"
-                alt="Marmot Ajax tent"
-              />
+              <img src="" alt="Marmot Ajax tent"/>
             </a>
             <a href="product_pages/marmot-ajax-3.html">
               <h2 class="card__name">Marmot Ajax Tent - 3-Person, 3-Season</h2>
@@ -72,7 +69,9 @@
             <p class="cart-card__color">Pale Pumpkin/Terracotta</p>
             <p class="cart-card__quantity">qty: 1</p>
             <p class="cart-card__price">$199.99</p>
+            <button type='button' class="remove_item" onclick="remove_li('1308')">X</button>
           </li>
+          
           <li class="cart-card divider">
             <a href="product_pages/marmot-ajax-3.html" class="cart-card__image">
               <img
@@ -94,5 +93,14 @@
     </main>
 
     <footer>&copy;NOT a real business</footer>
+
+    <script type="text/javascript">
+      // i tride so many ways but this worked
+      function remove_li(id) {
+        let ul = document.querySelector(".product-list");
+        let li = document.getElementById(id);
+        ul.remove(li);
+      }
+    </script>
   </body>
 </html>
