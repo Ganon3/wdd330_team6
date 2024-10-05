@@ -8,12 +8,13 @@ function renderCartContents() {
       "<li>Your cart is empty</li>";
   } else {
     const cartArray = [].concat(cartItems);
+    document.querySelector("#cart-count").textContent = cartArray.length;
     const htmlItems = cartArray.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
 
   // pull count and update
-  document.querySelector("#cart-count").textContent = cartArray.length;
+  
 }
 
 function cartItemTemplate(item) {
