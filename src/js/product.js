@@ -1,5 +1,11 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { getParam } from "./utils.mjs";
+import productDetails from "./productDetail.mjs";
+
+const productId = getParam("product");
+console.log(findProductById(productId));
+productDetails(productId);
 
 function addProductToCart(product) {
   setLocalStorage("so-cart", product);
@@ -20,13 +26,14 @@ function renderCartContents() {
 
   // this is what adds the item to the cart
   const cartArray = [].concat(cartItems);
-
+  
   // pull count and update
   document.querySelector("#cart-count").textContent = cartArray.length;
 }
 
 renderCartContents();
 // add listener to Add to Cart button !! This line was broken
+
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
