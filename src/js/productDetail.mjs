@@ -4,21 +4,6 @@ import { setLocalStorage } from "./utils.mjs";
 let product = {};
 
 export default async function productDetails(productId) {
-<<<<<<< HEAD
-  // get the details for the current product. findProductById will return a promise! use await or .then() to process it
-  product = await findProductById(productId);
-  // once we have the product details we can render out the HTML
-  renderProductDetails();
-  // once the HTML is rendered we can add a listener to Add to Cart button
-  document.getElementById("addToCart").addEventListener("click", addToCart);
-}
-function addToCart() {
-  setLocalStorage("so-cart", product);
-}
-function renderProductDetails() {
-  document.querySelector("#productName").innerText = product.Brand.Name;
-  document.querySelector("#productNameWithoutBrand").innerText =
-=======
     product = await findProductById(productId);
     renderProductDetails();
     document.getElementById("addToCart").addEventListener("click", addToCart);
@@ -32,7 +17,6 @@ function addToCart() {
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
   document.querySelector("#productNameWithoutBrand").innerText = 
->>>>>>> e1d58bce896d83c141c033bd7bdc52c437bbe4db
     product.NameWithoutBrand;
   document.querySelector("#productImage").src = product.Image;
   document.querySelector("#productImage").alt = product.Name;
