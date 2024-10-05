@@ -4,7 +4,6 @@ import { getParam } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
 
 const productId = getParam("product");
-console.log(findProductById(productId));
 productDetails(productId);
 
 function addProductToCart(product) {
