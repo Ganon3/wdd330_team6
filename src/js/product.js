@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
@@ -16,7 +16,24 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-// add listener to Add to Cart button
+function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart");
+
+  // checks if cart is empty
+  if (!cartItems || cartItems.length === 0) {
+    return;
+  }
+
+  // this is what adds the item to the cart
+  const cartArray = [].concat(cartItems);
+  
+  // pull count and update
+  document.querySelector("#cart-count").textContent = cartArray.length;
+}
+
+renderCartContents();
+// add listener to Add to Cart button !! This line was broken
+
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
