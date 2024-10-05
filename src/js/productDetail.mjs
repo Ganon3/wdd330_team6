@@ -6,7 +6,8 @@ let product = {};
 export default async function productDetails(productId) {
     product = await findProductById(productId);
     renderProductDetails();
-    document.getElementById("addToCart".addEventListener)("click", addToCart);
+    document.getElementById("addToCart").addEventListener("click", addToCart);
+    
   }
   
 function addToCart() {
@@ -15,7 +16,7 @@ function addToCart() {
  
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
-  document.querySelector("#productNameWithoutBrand").innerText =
+  document.querySelector("#productNameWithoutBrand").innerText = 
     product.NameWithoutBrand;
   document.querySelector("#productImage").src = product.Image;
   document.querySelector("#productImage").alt = product.Name;
