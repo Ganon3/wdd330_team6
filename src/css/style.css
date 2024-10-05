@@ -110,6 +110,21 @@ button {
   fill: gray;
 }
 
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+
 /* End cart icon styles */
 
 .mission {
@@ -173,6 +188,7 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  justify-items: center;
 }
 
 .cart-card__image {
@@ -190,6 +206,7 @@ button {
 .cart-card__color {
   grid-row: 2;
   grid-column: 2;
+  justify-self: left;
 }
 
 .cart-card__quantity {
@@ -219,4 +236,16 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+/* I Fuad added the button to remove from cart */
+.remove_item {
+  grid-row: 2;
+  grid-column: 4;
+  color: black;
+  padding: 20px;
+  background-color: #f0a868;
+}
+.remove_item:hover {
+  border: solid 2px #525b0f;
 }
