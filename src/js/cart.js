@@ -11,6 +11,13 @@ function renderCartContents() {
     const htmlItems = cartArray.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
+
+  // this is what adds the item to the cart
+  const cartArray = [].concat(cartItems);
+
+  const htmlItems = cartArray.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
 }
 
 function cartItemTemplate(item) {
