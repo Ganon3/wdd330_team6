@@ -2,6 +2,8 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  const htmlItems = cartArray.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 
   // checks if cart is empty
   if (!cartItems || cartItems.length === 0) {
@@ -12,9 +14,6 @@ function renderCartContents() {
 
   // this is what adds the item to the cart
   const cartArray = [].concat(cartItems);
-
-  const htmlItems = cartArray.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
