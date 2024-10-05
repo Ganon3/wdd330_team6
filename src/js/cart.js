@@ -2,10 +2,8 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartArray.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 
-  if (cartItems == false || cartItems.langth === 0) {
+  if (cartItems == false || cartItems.length === 0) {
     document.querySelector(".product-list").innerHTML =
       "<li>Your cart is empty</li>";
   } else {
