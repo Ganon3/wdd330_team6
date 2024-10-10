@@ -1,3 +1,4 @@
+import { doc } from "prettier";
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
@@ -7,21 +8,31 @@ function renderCartContents() {
   if (checkIfCartIsEmpty(cartItems)) {
     return;
   }
-
   function checkIfCartIsEmpty(cartItems) {
     if (!cartItems || cartItems.length === 0) {
-      document.querySelector(".product-list").innerHTML =
-        "<li>Your cart is empty</li>";
+      document.querySelector(".product-list").innerHTML = "<li>Your cart is empty</li>";
       document.querySelector("#cart-count").textContent = 0;
+      document.querySelector(".cart-total").textContent = "Total: $0.00";
+      document.querySelector(".cart-footer").classList.remove("show");
       return true;
     }
     return false;
   }
+
+  // adding script for showing cart-footer element when needed - km
+  function updateCartTotal() {
+    const total = cartArray.reduce((sum, item) => sum + item.FinalPrice, 0);
+    document.getElementById("cart-total").textContent = total.toFixed(2)
+    document.querySelector(".cart-footer").classList.add("show");
+  }
   
   const cartArray = [].concat(cartItems);
   document.querySelector("#cart-count").textContent = cartArray.length; // this is suppose to update the cart count but isn't? km
+  
   const htmlItems = cartArray.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  updateCartTotal(cartArray)
 }
 
 function cartItemTemplate(item) {
@@ -44,7 +55,7 @@ function cartItemTemplate(item) {
 function remove_li(id) {
   let ul = document.querySelector(".product-list");
   let li = document.getElementById(id);
-  ul.remove(li);
+  ul.removeC(li);
 }
 
 renderCartContents();
