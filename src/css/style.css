@@ -123,9 +123,20 @@ button {
   line-height: 20px;
   font-size: 12px;
 }
-
-
 /* End cart icon styles */
+
+/* cart total css */
+.cart-footer {
+  margin-top: 20px;
+  padding: 10px;
+  /* background-color: antiquewhite; */
+  border-top: 2px solid #f0a868;
+  text-align: right;
+}
+.cart-footer.show {
+  display: block;
+}
+/* end cart total css */
 
 .mission {
   padding: 0 0.5em;
