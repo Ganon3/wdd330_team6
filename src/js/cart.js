@@ -40,10 +40,4 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-function remove_li(id) {
-  let ul = document.querySelector(".product-list");
-  let li = document.getElementById(id);
-  ul.remove(li);
-}
-
 renderCartContents();

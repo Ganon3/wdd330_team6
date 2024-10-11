@@ -98,11 +98,25 @@
     <footer>&copy;NOT a real business</footer>
 
     <script type="text/javascript">
+
       // i tride so many ways but this worked
       function remove_li(id) {
         let ul = document.querySelector(".product-list");
         let li = document.getElementById(id);
         ul.remove(li);
+
+        let so_cart =  JSON.parse(localStorage.getItem("so-cart"));
+        let cartArray = [].concat(so_cart);   //console.log(cartArray[0]["Brand"]["Id"]);
+        let newArray = cartArray.filter(cart_item => cart_item["Brand"]["Id"] !== id);
+
+        document.querySelector("#cart-count").textContent = newArray.length
+        localStorage.setItem("so-cart", newArray);
+
+        //console.log(cartArray);
+        
+        //console.log(cartArray.indexOf("Id"))
+        //console.log(Object.keys(so_cart));  
+        //console.log(so_cart["Id"]);  
       }
     </script>
   </body>
