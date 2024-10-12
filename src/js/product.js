@@ -26,7 +26,7 @@ function renderCartContents() {
 
   // this is what adds the item to the cart
   const cartArray = [].concat(cartItems);
-  
+
   // pull count and update
   document.querySelector("#cart-count").textContent = cartArray.length;
 }
