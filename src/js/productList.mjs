@@ -1,4 +1,5 @@
 import { getData } from "./productData.mjs";
+import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
     return `<li class="product-card">
@@ -14,14 +15,12 @@ function productCardTemplate(product) {
 }
 
 export default async function productList(selector, category) {
+
     const el = document.querySelector(selector);
-    const products = await getData(category);
-    console.log(products);
-
+    let products = await getData(category);
     
-    }
+    products = products.filter(item => item["Id"] != "989CG" && item["Id"] != "880RT" ) // change later
+    //console.log(products);
 
-//     renderList(list, el) {
-//         const htmlStrings = list.map(productCardTemplate);
-//         el.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
-// }
+    renderListWithTemplate(productCardTemplate, el, products);
+    }
