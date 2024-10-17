@@ -59,8 +59,6 @@ function renderCartContents() {
 
   const cartArray = [].concat(cartItems);
   document.querySelector("#cart-count").textContent = cartArray.length;
-  // this ensures cart contents are updated
-  renderCartContents();
 }
 
 renderCartContents();
