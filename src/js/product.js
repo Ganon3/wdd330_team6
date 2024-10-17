@@ -22,7 +22,7 @@ async function loadProductDetails() {
     addToCartBtn.classList.add("show");
     addToCartBtn.addEventListener("click", () => addProductToCart(product));
     } catch (error) {
-      console.error("Error loading product details:", error);
+      // console.error("Error loading product details:", error);
       handleProductNotFound();
     }
 }
