@@ -19,14 +19,11 @@ function addToCart() {
  
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
-  document.querySelector("#productNameWithoutBrand").innerText = 
-    product.NameWithoutBrand;
-  document.querySelector("#productImage").src = product.Image;
-  document.querySelector("#productImage").alt = product.Name;
-  document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
-  document.querySelector("#productColorName").innerText =
-    product.Colors[0].ColorName;
-  document.querySelector("#productDescriptionHtmlSimple").innerHTML =
-    product.DescriptionHtmlSimple;
-  document.querySelector("#addToCart").dataset.id = product.Id;
+    document.querySelector("#productNameWithoutBrand").innerText = product.NameWithoutBrand;
+    document.querySelector("#productImage").src = product.Image;
+    document.querySelector("#productImage").alt = product.Name;
+    document.querySelector("#productFinalPrice").innerText = `${product.FinalPrice}\$ or ${(product.FinalPrice * .90).toFixed(2)}\$ with discount`;
+    document.querySelector("#productColorName").innerText = product.Colors[0].ColorName;
+    document.querySelector("#productDescriptionHtmlSimple").innerHTML =product.DescriptionHtmlSimple;
+    document.querySelector("#addToCart").dataset.id = product.Id;
 }

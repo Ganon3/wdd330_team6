@@ -268,3 +268,7 @@ footer {
 .remove_item:hover {
   border: solid 2px #525b0f;
 }
+
+.product-card__price::after {
+  content: "(10%).";
+}
