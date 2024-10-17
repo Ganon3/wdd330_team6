@@ -25,10 +25,11 @@ function renderCartContents() {
 // checks if the cart is empty and updates the display accordingly.
 function checkIfCartIsEmpty(cartItems) {
   if (!cartItems || cartItems.length === 0) {
-    document.querySelector(".product-list").innerHTML = "<li>Your cart is empty</li>";
+    document.querySelector(".product-list").innerHTML =
+      "<li>Your cart is empty</li>";
     document.querySelector(".cart-total").textContent = "Total: $0.00";
     document.querySelector(".cart-footer").classList.remove("show");
-    return true; 
+    return true;
   }
   return false;
 }

@@ -21,10 +21,10 @@ async function loadProductDetails() {
     const addToCartBtn = document.getElementById("addToCart");
     addToCartBtn.classList.add("show");
     addToCartBtn.addEventListener("click", () => addProductToCart(product));
-    } catch (error) {
-      console.error("Error loading product details:", error);
-      handleProductNotFound();
-    }
+  } catch (error) {
+    // console.error("Error loading product details:", error);
+    handleProductNotFound();
+  }
 }
 
 function handleProductNotFound() {
