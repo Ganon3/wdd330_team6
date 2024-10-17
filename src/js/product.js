@@ -19,11 +19,11 @@ async function loadProductDetails() {
     productDetails(productId);
 
     const addToCartBtn = document.getElementById("addToCart");
-    addToCartBtn.classList.add("show");
-    addToCartBtn.addEventListener("click", () => addProductToCart(product));
+    addToCartBtn.classList.add("show"); // Show the Add to Cart button
+    addToCartBtn.addEventListener("click", () => addProductToCart(product)); // Attach event listener
   } catch (error) {
-    // console.error("Error loading product details:", error);
-    handleProductNotFound();
+    console.error("Error loading product details:", error);
+    handleProductNotFound(); // In case of any other error, show the error message
   }
 }
 
@@ -45,8 +45,6 @@ function addProductToCart(product) {
   const cartItems = getLocalStorage("so-cart") || [];
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
-  // this ensures cart contents are updated
-  renderCartContents();
 }
 
 // this will update the cart contents whenever the page loads
