@@ -9,14 +9,10 @@ export default async function productDetails(productId, selector) {
   // add a listener to Add to Cart button
     product = await findProductById(productId);
     renderProductDetails();
-    document.getElementById("addToCart").addEventListener("click", addToCart);
     
   }
   
-function addToCart() {
-    setLocalStorage("so-cart", product);
- }
- 
+
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
     document.querySelector("#productNameWithoutBrand").innerText = product.NameWithoutBrand;
