@@ -41,9 +41,24 @@ function handleProductNotFound() {
 loadProductDetails();
 
 // function to add the product to the cart
+// this function is called when the Add to Cart button is clicked and will add the product to the cart more than once
 function addProductToCart(product) {
-  const cartItems = getLocalStorage("so-cart") || [];
+  product.Quantity = 1;
+  
+  let cartItems = getLocalStorage("so-cart") || [];
+  
+  if(!Array.isArray(cartItems)){
+    cartItems = [];
+  } else {
+    const existingProduct = cartItems.find(item => item.Id === product.Id);
+    if(existingProduct){
+      cartItems = cartItems.filter(item => item.Id !== product.Id);
+      product.Quantity = (existingProduct.Quantity ?? 1) + 1;
+    }
+  }
+ 
   cartItems.push(product);
+
   setLocalStorage("so-cart", cartItems);
   // this ensures cart contents are updated
   renderCartContents();
@@ -54,11 +69,13 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
 
   if (!cartItems || cartItems.length === 0) {
+    document.querySelector("#cart-count").style.display = "none";
     return;
   }
 
   const cartArray = [].concat(cartItems);
   document.querySelector("#cart-count").textContent = cartArray.length;
+  document.querySelector("#cart-count").style.display = "";
 }
 
 renderCartContents();

@@ -28,6 +28,8 @@
     "quotes": ["error", "double", { "allowTemplateLiterals": true }],
     "func-names": 0,
     "space-unary-ops": 2,
+    // this helps with debugging
+    "no-debugger": 0,
     "space-in-parens": "error",
     "space-infix-ops": "error",
     "comma-dangle": 0,

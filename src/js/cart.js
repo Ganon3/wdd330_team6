@@ -6,6 +6,8 @@ function renderCartContents() {
 
   // check if the cart is empty and display an appropriate message if it is.
   if (checkIfCartIsEmpty(cartItems)) {
+    // this ensures cart contents are updated
+    document.querySelector("#cart-count").style.display = "none";
     return;
   }
 
@@ -14,6 +16,8 @@ function renderCartContents() {
 
   // update the cart count display.
   document.querySelector("#cart-count").textContent = cartArray.length;
+  // this ensures cart contents are updated
+  document.querySelector("#cart-count").style.display = "";
 
   // generate the HTML for each cart item and insert it into the product list.
   const htmlItems = cartArray.map(cartItemTemplate).join("");
@@ -43,6 +47,8 @@ function updateCartTotal(cartArray) {
 
 // generates HTML for a single cart item.
 function cartItemTemplate(item) {
+        // this logic it to check if the cart is empty and display an appropriate message if it is.
+
   return `
     <li id="${item.Brand.Id}" class="cart-card divider">
       <a href="#" class="cart-card__image">
@@ -52,7 +58,7 @@ function cartItemTemplate(item) {
         <h2 class="card__name">${item.Name}</h2>
       </a>
       <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-      <p class="cart-card__quantity">qty: 1</p>
+      <p class="cart-card__quantity">qty: ${item.Quantity}</p>
       <p class="cart-card__price">$${item.FinalPrice}</p>
       <button type='button' class="remove_item" onclick="remove_li('${item.Brand.Id}')">X</button>
     </li>`;
