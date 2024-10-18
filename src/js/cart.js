@@ -50,7 +50,7 @@ function cartItemTemplate(item) {
         // this logic it to check if the cart is empty and display an appropriate message if it is.
 
   return `
-    <li id="${item.Brand.Id}" class="cart-card divider">
+    <li id="${item.Id}" class="cart-card divider">
       <a href="#" class="cart-card__image">
         <img src="${item.Image}" alt="${item.Name}" />
       </a>
@@ -60,7 +60,7 @@ function cartItemTemplate(item) {
       <p class="cart-card__color">${item.Colors[0].ColorName}</p>
       <p class="cart-card__quantity">qty: ${item.Quantity}</p>
       <p class="cart-card__price">$${item.FinalPrice}</p>
-      <button type='button' class="remove_item" onclick="remove_li('${item.Brand.Id}')">X</button>
+      <button type='button' class="remove_item" onclick="remove_li('${item.Id}')">X</button>
     </li>`;
 }
 
