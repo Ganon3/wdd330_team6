@@ -1,4 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 // renders the contents of the cart by fetching cart items from local storage.
 function renderCartContents() {
@@ -47,7 +50,7 @@ function updateCartTotal(cartArray) {
 
 // generates HTML for a single cart item.
 function cartItemTemplate(item) {
-        // this logic it to check if the cart is empty and display an appropriate message if it is.
+  // this logic it to check if the cart is empty and display an appropriate message if it is.
 
   return `
     <li id="${item.Id}" class="cart-card divider">

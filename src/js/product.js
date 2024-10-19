@@ -2,6 +2,9 @@ import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 // added Team Activity 2
 const productId = getParam("product");
@@ -44,19 +47,19 @@ loadProductDetails();
 // this function is called when the Add to Cart button is clicked and will add the product to the cart more than once
 function addProductToCart(product) {
   product.Quantity = 1;
-  
+
   let cartItems = getLocalStorage("so-cart") || [];
-  
-  if(!Array.isArray(cartItems)){
+
+  if (!Array.isArray(cartItems)) {
     cartItems = [];
   } else {
-    const existingProduct = cartItems.find(item => item.Id === product.Id);
-    if(existingProduct){
-      cartItems = cartItems.filter(item => item.Id !== product.Id);
+    const existingProduct = cartItems.find((item) => item.Id === product.Id);
+    if (existingProduct) {
+      cartItems = cartItems.filter((item) => item.Id !== product.Id);
       product.Quantity = (existingProduct.Quantity ?? 1) + 1;
     }
   }
- 
+
   cartItems.push(product);
 
   setLocalStorage("so-cart", cartItems);
