@@ -1,4 +1,10 @@
 import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+import shoppingCart from "./shoppingCart.mjs";
+import ShoppingCart from "./shoppingCart.mjs";
+
+loadHeaderFooter();
+shoppingCart();
 
 // renders the contents of the cart by fetching cart items from local storage.
 function renderCartContents() {
@@ -19,10 +25,10 @@ function renderCartContents() {
   // this ensures cart contents are updated
   document.querySelector("#cart-count").style.display = "";
 
-  // generate the HTML for each cart item and insert it into the product list.
-  const htmlItems = cartArray.map(cartItemTemplate).join("");
-  document.querySelector(".product-list").innerHTML = htmlItems;
+  // call the shoppingCart module to render the cart items
+  ShoppingCart(cartArray);
 
+  // update the total price of the cart.
   updateCartTotal(cartArray);
 }
 
@@ -43,25 +49,6 @@ function updateCartTotal(cartArray) {
   const total = cartArray.reduce((sum, item) => sum + item.FinalPrice, 0);
   document.getElementById("cart-total").textContent = total.toFixed(2);
   document.querySelector(".cart-footer").classList.add("show");
-}
-
-// generates HTML for a single cart item.
-function cartItemTemplate(item) {
-        // this logic it to check if the cart is empty and display an appropriate message if it is.
-
-  return `
-    <li id="${item.Id}" class="cart-card divider">
-      <a href="#" class="cart-card__image">
-        <img src="${item.Image}" alt="${item.Name}" />
-      </a>
-      <a href="#">
-        <h2 class="card__name">${item.Name}</h2>
-      </a>
-      <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-      <p class="cart-card__quantity">qty: ${item.Quantity}</p>
-      <p class="cart-card__price">$${item.FinalPrice}</p>
-      <button type='button' class="remove_item" onclick="remove_li('${item.Id}')">X</button>
-    </li>`;
 }
 
 renderCartContents();

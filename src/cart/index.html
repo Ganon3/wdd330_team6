@@ -49,8 +49,10 @@
             <!-- <text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Natalia Woodroffe</text>
             <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
           </svg>
-            <!-- display: none is to hide the badge if the cart is empty -->
-          <span id="cart-count" class="cart-count" style="display: none;">0</span>
+          <!-- display: none is to hide the badge if the cart is empty -->
+          <span id="cart-count" class="cart-count" style="display: none"
+            >0</span
+          >
           <!-- <label ID="lblCartCount" CssClass="badge badge-warning"  ForeColor="White"/>3</a> -->
         </a>
       </div>
@@ -110,18 +112,15 @@
 
         let so_cart = JSON.parse(localStorage.getItem("so-cart"));
         let cartArray = [].concat(so_cart); //console.log(cartArray[0]["Brand"]["Id"]);
-        let newArray = cartArray.filter(
-          (cart_item) => cart_item["Id"] !== id
-        );
+        let newArray = cartArray.filter((cart_item) => cart_item["Id"] !== id);
 
         const total = newArray.reduce((sum, item) => sum + item.FinalPrice, 0);
         document.getElementById("cart-total").textContent = total.toFixed(2);
         document.querySelector(".cart-footer").classList.add("show");
-        
-        
+
         // this logic it to check if the cart is empty and display an appropriate message if it is.
         document.querySelector("#cart-count").textContent = newArray.length;
-        if(newArray.length == 0){
+        if (newArray.length == 0) {
           document.querySelector("#cart-count").style.display = "none";
         } else {
           document.querySelector("#cart-count").style.display = "";
