@@ -2,7 +2,6 @@ import { getLocalStorage } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 import shoppingCart from "./shoppingCart.mjs";
 
-
 loadHeaderFooter();
 shoppingCart();
 
@@ -26,7 +25,7 @@ function renderCartContents() {
   document.querySelector("#cart-count").style.display = "";
 
   // call the shoppingCart module to render the cart items
-  ShoppingCart(cartArray);
+  shoppingCart(cartArray);
 
   // update the total price of the cart.
   updateCartTotal(cartArray);
