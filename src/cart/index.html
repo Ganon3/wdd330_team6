@@ -15,9 +15,6 @@
 
   <body>
     <header class="divider" id="main-header"></header>
-    
-    <!-- style display non is to hide the badge if the cart is empty -->
-    <span id="cart-count" class="cart-count" style="display: none">0</span>
 
     <main class="divider">
       <section class="products">
@@ -29,39 +26,9 @@
         <div class="cart-footer hide">
           <p class="cart-total">Total: $<span id="cart-total"></span></p>
         </div>
-        
       </section>
     </main>
 
     <footer id="main-footer"></footer>
-
-    <script type="text/javascript">
-      // Fuad added this
-
-      function remove_li(id) {
-        let ul = document.querySelector(".product-list");
-        let li = document.getElementById(id);
-        ul.remove(li);
-
-        let so_cart = JSON.parse(localStorage.getItem("so-cart"));
-        let cartArray = [].concat(so_cart); //console.log(cartArray[0]["Brand"]["Id"]);
-        let newArray = cartArray.filter((cart_item) => cart_item["Id"] !== id);
-
-        const total = newArray.reduce((sum, item) => sum + item.FinalPrice, 0);
-        document.getElementById("cart-total").textContent = total.toFixed(2);
-        document.querySelector(".cart-footer").classList.add("show");
-
-        // this logic it to check if the cart is empty and display an appropriate message if it is.
-        document.querySelector("#cart-count").textContent = newArray.length;
-        if (newArray.length == 0) {
-          document.querySelector("#cart-count").style.display = "none";
-        } else {
-          document.querySelector("#cart-count").style.display = "";
-        }
-
-        localStorage.setItem("so-cart", JSON.stringify(newArray));
-        location.reload();
-      }
-    </script>
   </body>
 </html>

@@ -8,9 +8,9 @@ export default function shoppingCart() {
 
 // generates HTML for a single cart item.
 function cartItemTemplate(item) {
-    const newItem = `
+    return `
 <li id="${item.Id}" class="cart-card divider">
-  <a href="#" class="cart-card__image">
+  <a href="../product_pages/index.html?product=${item.Id}" class="cart-card__image">
     <img 
     src="${item.Image}" 
     alt="${item.Name}" 
@@ -22,8 +22,6 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: ${item.Quantity}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <button type='button' class="remove_item" onclick="remove_li('${item.Id}')">X</button>
+  <button type="button" class="remove_item" data-id="${item.Id}">X</button>
 </li>`;
-
-    return newItem
 }

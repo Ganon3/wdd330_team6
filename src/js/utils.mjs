@@ -7,12 +7,7 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch (error) {
-    return null;
-  }
-  
+  return JSON.parse(localStorage.getItem(key));
 }
 
 // save data to local storage
@@ -86,6 +81,20 @@ export async function loadHeaderFooter() {
   const header = document.getElementById("main-header");
   const footer = document.getElementById("main-footer");
 
-  renderWithTemplate(headerTemplateFn, header);
-  renderWithTemplate(footerTemplateFn, footer);
+  await renderWithTemplate(headerTemplateFn, header);
+  await renderWithTemplate(footerTemplateFn, footer);
+}
+
+export function updateCartCount() {
+  const cartItems = getLocalStorage("so-cart");
+  const cartCountElement = document.querySelector("#cart-count");
+
+  if (!cartItems || cartItems.length === 0) {
+    cartCountElement.classList.add("hidden");
+    return;
+  }
+
+  const cartArray = Array.isArray(cartItems) ? cartItems : [cartItems];
+  cartCountElement.textContent = cartArray.length;
+  cartCountElement.classList.remove("hidden");
 }
