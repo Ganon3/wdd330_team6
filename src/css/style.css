@@ -131,6 +131,11 @@ button {
   line-height: 20px;
   font-size: 12px;
 }
+
+.hidden {
+  display: none;
+}
+
 /* End cart icon styles */
 
 /* cart total css */
