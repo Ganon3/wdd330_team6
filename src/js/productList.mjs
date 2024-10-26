@@ -24,6 +24,7 @@ export default async function productList(selector, category) {
     // products = products.filter(item => item["Id"] != "989CG" && item["Id"] != "880RT" ) // change later
     //console.log(products);
 
+    // something is happening here on the main index - console bug line 28
     renderListWithTemplate(productCardTemplate, el, products);
-    document.querySelector(".title").innerHTML = category;
+    document.querySelector(".title").innerHTML = category.toUpperCase();
     }
