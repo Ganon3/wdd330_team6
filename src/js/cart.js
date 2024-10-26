@@ -1,47 +1,43 @@
 import { getLocalStorage } from "./utils.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
-
-loadHeaderFooter();
 
 // renders the contents of the cart by fetching cart items from local storage.
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  const productList = document.querySelector(".product-list");
 
-  // check if the cart is empty and display an appropriate message if it is.
-  if (checkIfCartIsEmpty(cartItems)) {
-    // this ensures cart contents are updated
-    document.querySelector("#cart-count").style.display = "none";
-    return;
-  }
+  if (checkIfCartIsEmpty(cartItems, productList)) return;
 
-  // ensure cartItems is an array for consistency.
-  const cartArray = Array.isArray(cartItems) ? cartItems : [cartItems];
-
-  // update the cart count display.
-  document.querySelector("#cart-count").textContent = cartArray.length;
-  // this ensures cart contents are updated
-  document.querySelector("#cart-count").style.display = "";
-
-  // generate the HTML for each cart item and insert it into the product list.
-  const htmlItems = cartArray.map(cartItemTemplate).join("");
-  document.querySelector(".product-list").innerHTML = htmlItems;
-
-  updateCartTotal(cartArray);
+  shoppingCart();
+  attachRemoveItemHandlers();
+  updateCartTotal(cartItems);
+  updateCartCount();
 }
 
-// checks if the cart is empty and updates the display accordingly.
-function checkIfCartIsEmpty(cartItems) {
-  if (!cartItems || cartItems.length === 0) {
-    document.querySelector(".product-list").innerHTML =
-      "<li>Your cart is empty</li>";
+function checkIfCartIsEmpty(cartItems, productList) {
+  if (cartItems.length === 0) {
+    productList.innerHTML = "<li>Your cart is empty</li>";
     document.querySelector(".cart-total").textContent = "Total: $0.00";
     document.querySelector(".cart-footer").classList.remove("show");
+    document.querySelector("#cart-count").style.display = "none";
     return true;
   }
+  document.querySelector("#cart-count").style.display = "";
   return false;
 }
 
-// updates the total price of items in the cart.
+function attachRemoveItemHandlers() {
+  document.querySelectorAll(".remove_item").forEach((button) => {
+    button.onclick = () => removeItemFromCart(button.dataset.id);
+  });
+}
+
+function removeItemFromCart(itemId) {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const updatedCartItems = cartItems.filter((item) => item.Id !== itemId);
+  setLocalStorage("so-cart", updatedCartItems);
+  renderCartContents();
+}
+
 function updateCartTotal(cartArray) {
   const total = cartArray.reduce((sum, item) => sum + item.FinalPrice, 0);
   document.getElementById("cart-total").textContent = total.toFixed(2);
@@ -50,7 +46,7 @@ function updateCartTotal(cartArray) {
 
 // generates HTML for a single cart item.
 function cartItemTemplate(item) {
-  // this logic it to check if the cart is empty and display an appropriate message if it is.
+        // this logic it to check if the cart is empty and display an appropriate message if it is.
 
   return `
     <li id="${item.Id}" class="cart-card divider">
