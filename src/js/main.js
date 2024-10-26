@@ -1,5 +1,10 @@
 import productList from "./productList.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
 
-loadHeaderFooter();
+// this loads the updateCartCount after the content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  loadHeaderFooter().then(() => {
+    updateCartCount();
+  });
+});
 productList(".product-list", "tents");
