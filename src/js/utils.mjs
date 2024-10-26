@@ -85,6 +85,7 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(footerTemplateFn, footer);
 }
 
+// this is here because it's used in the main, product and cart pages.
 export function updateCartCount() {
   const cartItems = getLocalStorage("so-cart");
   const cartCountElement = document.querySelector("#cart-count");

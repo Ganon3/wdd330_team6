@@ -6,10 +6,10 @@ import {
 } from "./utils.mjs";
 import shoppingCart from "./shoppingCart.mjs";
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadHeaderFooter().then(() => {
-    renderCartContents();
-  });
+// this loads the updateCartCount after the content is loaded
+// took out event listener because it is stable now - km
+loadHeaderFooter().then(() => {
+  renderCartContents();
 });
 
 function renderCartContents() {
