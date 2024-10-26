@@ -84,14 +84,13 @@ header {
 /* to hide if product not found - km */
 #addToCart {
   display: none;
-  
 }
 
 #addToCart.show {
   display: block;
 }
 
-button:hover  {
+button:hover {
   border: solid 1px black;
 }
 
@@ -194,8 +193,8 @@ button {
 
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  margin: auto; 
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: auto;
   font-size: var(--small-font);
 }
 
