@@ -1,6 +1,17 @@
-import { getLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  updateCartCount,
+  loadHeaderFooter,
+} from "./utils.mjs";
+import shoppingCart from "./shoppingCart.mjs";
 
-// renders the contents of the cart by fetching cart items from local storage.
+// this loads the updateCartCount after the content is loaded
+// took out event listener because it is stable now - km
+loadHeaderFooter().then(() => {
+  renderCartContents();
+});
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const productList = document.querySelector(".product-list");

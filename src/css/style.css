@@ -80,13 +80,19 @@ header {
 .highlight {
   color: var(--tertiary-color);
 }
+
 /* to hide if product not found - km */
 #addToCart {
   display: none;
+  
 }
 
 #addToCart.show {
   display: block;
+}
+
+button:hover  {
+  border: solid 1px black;
 }
 
 button {
@@ -184,6 +190,21 @@ button {
 .product-card h3,
 .product-card p {
   margin: 0.5em 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  margin: auto; 
+  font-size: var(--small-font);
+}
+
+.product-grid img {
+  width: 100px;
+}
+
+.product-grid li {
+  list-style: none;
 }
 
 .card__brand {
