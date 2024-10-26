@@ -43,6 +43,7 @@ loadProductDetails().then(() => {
   updateCartCount();
 });
 
+// this may have to be moved to productDetail.mjs later - km
 function addProductToCart(product) {
   product.Quantity = 1;
 
