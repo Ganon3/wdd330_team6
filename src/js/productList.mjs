@@ -1,9 +1,10 @@
 import { getData } from "./productData.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
+
 function productCardTemplate(product) {
     return `<li class="product-card">
-    <a href="../product_pages/index.html?product=${product.Id}">
+    <a href="/product_pages/index.html?product=${product.Id}">
     <img
       src="${product.Image}"
       alt="Image of ${product.Name}"
@@ -17,11 +18,12 @@ function productCardTemplate(product) {
 export default async function productList(selector, category) {
 
     const el = document.querySelector(selector);
-    let products = await getData(category);
+    const products = await getData(category);
     
     // we need to do something about this filter
     // products = products.filter(item => item["Id"] != "989CG" && item["Id"] != "880RT" ) // change later
     //console.log(products);
 
     renderListWithTemplate(productCardTemplate, el, products);
+    document.querySelector(".title").innerHTML = category;
     }
