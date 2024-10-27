@@ -8,7 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 const category = getParam("category");
 productList(".product-list", category);
-

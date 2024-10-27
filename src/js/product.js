@@ -4,7 +4,6 @@ import { getParam, updateCartCount, loadHeaderFooter } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-
 // this loads the updateCartCount after the content is loaded
 loadHeaderFooter().then(() => {
   updateCartCount();
