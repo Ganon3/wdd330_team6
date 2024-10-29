@@ -1,0 +1,14 @@
+[
+    {
+        "message": "This is only a test",
+        "background": "darkblue",
+        "color": "white"
+    },
+
+    {
+        "message": "New arrivals are here!",
+        "background": "green",
+        "color": "white"
+    }
+    
+]

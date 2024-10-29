@@ -26,5 +26,6 @@ export default async function productList(selector, category) {
 
     // something is happening here on the main index - console bug line 28
     renderListWithTemplate(productCardTemplate, el, products);
-    document.querySelector(".title").innerHTML = category.toUpperCase();
+    document.querySelector(".title").innerHTML = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+
     }
