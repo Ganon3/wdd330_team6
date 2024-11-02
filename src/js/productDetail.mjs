@@ -12,21 +12,11 @@ export default async function productDetails(productId, selector) {
     document.getElementById("addToCart").addEventListener("click", addToCart);
     
   }
-  function addToCart() {
-    let cartContents = getLocalStorage("so-cart");
-    //check to see if there was anything there
-    if (!cartContents) {
-      cartContents = [];
-    }
-    // then add the current product to the list
-    cartContents.push(product);
-    setLocalStorage("so-cart", cartContents);
-  }
 
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
     document.querySelector("#productNameWithoutBrand").innerText = product.NameWithoutBrand;
-    document.querySelector("#productImage").src = product.Image;
+    document.querySelector("#productImage").src = product.Images.PrimaryLarge;
     document.querySelector("#productImage").alt = product.Name;
     document.querySelector("#productFinalPrice").innerText = `${product.FinalPrice}\$ or ${(product.FinalPrice * .90).toFixed(2)}\$ with discount`;
     document.querySelector("#productColorName").innerText = product.Colors[0].ColorName;
