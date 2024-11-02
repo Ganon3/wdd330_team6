@@ -190,41 +190,7 @@ button {
 .product-card p {
   margin: 0.5em 0;
 }
-/* making this display as flex is easier than grid container */
-.product-grid {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 0;
-  font-size: var(--small-font);
-  text-align: center;
-  
-}
 
-.product-grid a {
-  color: black;
-  text-decoration: none;
-}
-
-.product-grid img {
-  width: 100px;
-}
-
-.product-grid li {
-  list-style: none;
-}
-
-.alert-list {
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.alert-message {
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-  font-weight: bold;
-  text-align: center;
-}
 .card__brand {
   font-size: var(--small-font);
 }
@@ -280,6 +246,38 @@ button {
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
+}
+/* main page product grid */
+/* making this display as flex is easier than grid container */
+.product-grid {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  font-size: var(--small-font);
+  text-align: center;
+}
+.product-grid a {
+  color: black;
+  text-decoration: none;
+}
+.product-grid img {
+  width: 100px;
+}
+.product-grid li {
+  list-style: none;
+}
+
+/* alert added 10-28 km */
+.alert-list {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.alert-message {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media screen and (min-width: 500px) {
