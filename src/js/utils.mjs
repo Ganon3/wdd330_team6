@@ -30,6 +30,7 @@ export function getParam(param) {
   return urlParams.get(param);
 }
 
+// there is a console bug at line 42
 export function renderListWithTemplate(
   templateFn,
   parentElement,

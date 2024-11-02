@@ -36,12 +36,13 @@ function checkIfCartIsEmpty(cartItems, productList) {
   return false;
 }
 
+// this is the remove handler for the button
 function attachRemoveItemHandlers() {
   document.querySelectorAll(".remove_item").forEach((button) => {
     button.onclick = () => removeItemFromCart(button.dataset.id);
   });
 }
-
+// this removes the item from the cart and sets it to the local storage
 function removeItemFromCart(itemId) {
   const cartItems = getLocalStorage("so-cart") || [];
   const updatedCartItems = cartItems.filter((item) => item.Id !== itemId);

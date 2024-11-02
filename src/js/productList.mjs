@@ -6,7 +6,7 @@ function productCardTemplate(product) {
     return `<li class="product-card">
     <a href="/product_pages/index.html?product=${product.Id}">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -24,6 +24,8 @@ export default async function productList(selector, category) {
     // products = products.filter(item => item["Id"] != "989CG" && item["Id"] != "880RT" ) // change later
     //console.log(products);
 
+    // something is happening here on the main index - console bug line 28
     renderListWithTemplate(productCardTemplate, el, products);
-    document.querySelector(".title").innerHTML = category;
+    document.querySelector(".title").innerHTML = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+
     }
