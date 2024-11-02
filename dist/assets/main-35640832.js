@@ -1,0 +1,1 @@
+import{l as t,u as o}from"./utils-dac5d251.js";import{p as e}from"./productList-932e4649.js";import"./productData-98a3baef.js";document.addEventListener("DOMContentLoaded",()=>{t().then(()=>{o()})});e(".product-list","tents");
