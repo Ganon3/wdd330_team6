@@ -9,65 +9,65 @@
     
   </head>
   <body>
+
     <header class="divider" id="main-header"></header>
     <main class="divider checkout">
+
       <h2>Review &amp; Place your Order</h2>
       <section class="checkout-form"></section>
+
       <form name="checkout">
         <fieldset>
-          <legend>Shipping</legend>
-          <div class="checkout-name">
-            <label for="fname">First Name</label>
-            <input id="fname" required />
-            <label for="lname">Last Name</label>
-            <input id="lname" required />
-          </div>
-          <div class="checkout-address">
-            <label for="street">Street</label>
-            <input id="street" required />
-            <label for="city">City</label>
-            <input id="city" required />
-            <label for="state">State</label>
-            <input id="state" required />
-            <label for="zip">Zip</label>
-            <input id="zip" required />
-          </div>
+                                <!-- temp diplay -->
+          <fieldset style="display: grid;">
+            <legend>Shipping</legend>
+            <label> First Name <input id="fname" type="text" name="fname" required> </label>
+            <label> Last Name <input id="lname" type="text" name="lname" required> </label>
+            <!-- <label> Title or Position <input id="title" type="text" name="title" pattern="[A-Z-]{7,0}"> </label>
+            <label> Email* <input id="email" type="email" name="email" placeholder="someone@gmail.com" required> </label>
+            <label> Phone* <input id="phone" type="tel" name="phone" placeholder="123-555-1234" required> </label> -->
+            <label> Street <input id="street" type="text" name="street" required></label>
+            <label> City <input id="city" type="text" name="city" required></label>
+            <label> State <input id="state" type="text" name="state" required></label>
+            <label> Zip <input id="zip" type="number" name="zip" required></label>
         </fieldset>
-        <fieldset>
+                             <!-- temp diplay -->
+        <fieldset style="display: grid;">
           <legend>Payment</legend>
-          <label for="cardNumber">Card Number</label>
-          <input id="cardNumber" required />
-          <label for="expiration">Expiration</label>
-          <input id="expiration" required />
-          <label for="code">Security Code</label>
-          <input id="code" required />
+
+          <label> Card number <input id="cardNumber" type="number" name="cardNumber" required></label>
+          <label> Expiration <input id="expiration" type="number" name="expiration" required></label>
+          <label> Security Code <input id="code" type="number" name="code" required></label>
+
         </fieldset>
+
         <fieldset class="checkout-summary">
           <legend>Order Summary</legend>
           <ul>
             <li>
               <label for="cartTotal"
-                >Item Subtotal(<span id="num-items"></span>)</label>
-                <p name="cartTotal" id="cartTotal"></p>
+                >Item Subtotal(<span id="num-items">xx</span>)</label>
+                <p name="cartTotal" id="cartTotal">xx.xx</p>
             </li>
             <li>
               <label for="shipping">ShippingEstimate</label>
-              <p id="shipping"></p>
+              <p id="shipping">xx.xx</p>
             </li>
             <li>
               <label for="tax">Tax</label>
-              <p id="tax"></p>
+              <p id="tax">xx.xx</p>
             </li>
             <li>
               <label for="orderTotal"><b>Order Total</b></label>
-              <p id="orderTotal"></p>
+              <p id="orderTotal">xx.xx</p>
             </li>
           </ul>
         </fieldset>
-
         <button id="checkoutSubmit" type="submit">Checkout</button>
       </form>
+
     </main>
     <footer id="main-footer"></footer>
+    
   </body>
 </html>

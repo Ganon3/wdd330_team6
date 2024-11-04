@@ -1,4 +1,4 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 
@@ -18,7 +18,7 @@ function productCardTemplate(product) {
 export default async function productList(selector, category) {
 
     const el = document.querySelector(selector);
-    const products = await getData(category);
+    const products = await getProductsByCategory(category);
     
     // we need to do something about this filter
     // products = products.filter(item => item["Id"] != "989CG" && item["Id"] != "880RT" ) // change later

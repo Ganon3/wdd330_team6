@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="author" content="Fuad J Torres" />
+    <meta name="content" content="Chamber sight home page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta property="og:title" content="Chamber sight home page" />
+    <meta property="og:type" content="websight" />
+    <meta property="og:url" content="https://ganon3.github.io/wdd230/chamber" />
+    <meta property="og:image" content="images/faviamge.png" />
+
+    <title>coppy of a thing i did form</title>
+  </head>
+
+  <main id="formMain">
+    <form method="get" action="thanks.html" class="wf1">
+      <fieldset>
+        <legend>Membership</legend>
+
+        <table>
+          <caption>
+            Our Membership Features and Plans
+          </caption>
+          <thead>
+            <tr>
+              <th colspan="5">Membership Plan grid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <th>Non-profit</th>
+              <th>Bronze</th>
+              <th>silver</th>
+              <th>Gold</th>
+            </tr>
+            <tr>
+              <th>feature1</th>
+              <td>✔️</td>
+              <td>✔️</td>
+              <td>✔️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <th>feature2</th>
+              <td>❌</td>
+              <td>✔️</td>
+              <td>✔️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <th>feature3</th>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✔️</td>
+              <td>✔️</td>
+            </tr>
+            <tr>
+              <th>feature4</th>
+              <td>✔️</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✔️</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div id="radioDiv">
+          <label
+            >NP (free) <input type="radio" name="membership" value="beginner" />
+          </label>
+          <label
+            >Bronze (76$ M)
+            <input type="radio" name="membership" value="intermediate" />
+          </label>
+          <label
+            >Silver (122$ M)
+            <input type="radio" name="membership" value="advanced" />
+          </label>
+          <label
+            >Gold (187$ M)
+            <input type="radio" name="membership" value="advanced" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Buisness Information</legend>
+        <div>Tell us about your buisness</div>
+        <label>
+          Buisness/organization's name*
+          <input id="buisness" type="text" name="compname" required />
+        </label>
+        <label>
+          Buisness Description
+          <textarea
+            id="buisnessD"
+            name="buisnessD"
+            rows="3"
+            cols="32"
+          ></textarea>
+        </label>
+        <label>
+          Date will be Recorded
+          <input id="datef" type="hidden" name="completionDate" value=""
+        /></label>
+        <input type="submit" value="Subscribe" />
+      </fieldset>
+
+      <!-- 
+    <fieldset>
+        <div>Software Needed</div>
+        <label> <input type="checkbox" name="editing" value="yes"> Photo Editing</label>
+        <label> <input type="checkbox" name="code" value="yes"> Coding</label>
+        <label> <input type="checkbox" name="process" value="yes"> Preprocessor</label>
+        <label> <input type="checkbox" name="client" value="yes"> FTP client</label>
+        <legend>Funding</legend>
+
+        <label>Anticipated Completion Date <input type="date" name="completeDate"></label>
+        <label>Course Subject 
+            <select name="subject">
+                <option value=""> Please Select &#9662</option>                 
+                <option value="Software">Software Development</option>
+                <option value="Creative">Creative Professional</option>
+                <option value="info">Information Technology</option>
+                <option value="Date">Date Professional</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="security">Cyber Security</option>
+            </select>
+        </label>
+        <label>How Many Authors <input type="number" name="authors"> </label>
+    
+    </fieldset>
+    <input type="submit" value="Propose My Course">
+    --></form>
+  </main>
+</html>
