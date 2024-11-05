@@ -4,11 +4,12 @@ const baseURL = import.meta.env.VITE_SERVER_URL
 // http://server-nodejs.cit.byui.edu:3000/
 // one works for post and one works for showing the poduct page, i dont know why
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  const data = await res.json();
   if (res.ok) {
-    return res.json();
+    return data;
   } else {
-    throw new Error("Bad Response");
+    throw { name: "servicesError", message: data };
   }
 }
 

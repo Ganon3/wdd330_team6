@@ -139,13 +139,22 @@ button {
 }
 /*animation cart item shake up and down*/
 @keyframes shake-up-down {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-5px); } /* Move up */
-    50% { transform: translateY(5px); }  /* Move down */
-    75% { transform: translateY(-5px); } /* Move up again */
-    100% { transform: translateY(0); }    /* Return to original position */
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  } /* Move up */
+  50% {
+    transform: translateY(5px);
+  } /* Move down */
+  75% {
+    transform: translateY(-5px);
+  } /* Move up again */
+  100% {
+    transform: translateY(0);
+  } /* Return to original position */
 }
-
 
 .hidden {
   display: none;
