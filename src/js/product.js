@@ -1,6 +1,6 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
-import { getParam, updateCartCount, loadHeaderFooter } from "./utils.mjs";
+import { getParam, updateCartCount, loadHeaderFoote, alertMessage } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
 
 // this loads the updateCartCount after the content is loaded
@@ -57,6 +57,7 @@ function addProductToCart(product) {
       cartItems = cartItems.filter((item) => item.Id !== product.Id);
       product.Quantity = (existingProduct.Quantity ?? 1) + 1;
     }
+    alertMessage(`${product.NameWithoutBrand} added to cart!`);
   }
 
   cartItems.push(product);
