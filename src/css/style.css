@@ -31,51 +31,53 @@ header {
   padding: 0 10px;
 }
 
- /* Search form styles */
- .box{
+/* Search form styles */
+.box {
   margin: 100px auto;
   width: 300px;
   height: 50px;
 }
 
-.container-2{
+.container-2 {
   width: 300px;
   vertical-align: middle;
-  white-space:nowrap;
-  position:relative;
+  white-space: nowrap;
+  position: relative;
 }
 
-.container-2 input#search{
+.container-2 input#search {
   width: 50px;
   height: 50px;
   background: #2b303b;
-  border:none;
+  border: none;
   font-size: 10pt;
   float: left;
   color: #262626;
   padding-left: 35px;
   border-radius: 5px;
   color: #fff;
-  transition: width .55s ease;
+  transition: width 0.55s ease;
 }
 
 .container-2 input#search::-webkit-input-placeholder {
-   color: #65737e;
-}
- 
-.container-2 input#search:-moz-placeholder { /* Firefox 18- */
-   color: #65737e;  
-}
- 
-.container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
-   color: #65737e;  
-}
- 
-.container-2 input#search:-ms-input-placeholder {  
-   color: #65737e;  
+  color: #65737e;
 }
 
-.container-2 .icon{
+.container-2 input#search:-moz-placeholder {
+  /* Firefox 18- */
+  color: #65737e;
+}
+
+.container-2 input#search::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #65737e;
+}
+
+.container-2 input#search:-ms-input-placeholder {
+  color: #65737e;
+}
+
+.container-2 .icon {
   position: absolute;
   /* float: right; */
   top: 50%;
@@ -85,16 +87,17 @@ header {
   color: #4f5b66;
 }
 
-.container-2 input#search:focus, .container-2 input#search:active{
-  outline:none;
+.container-2 input#search:focus,
+.container-2 input#search:active {
+  outline: none;
   width: 300px;
 }
 
-.container-2:hover input#search{
+.container-2:hover input#search {
   width: 300px;
 }
 
-.container-2:hover .icon{
+.container-2:hover .icon {
   color: #93a2ad;
 }
 
@@ -434,6 +437,43 @@ button {
   text-align: center;
 }
 
+/* modal style */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* end modal style */
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -468,4 +508,3 @@ footer {
 .product-card__price::after {
   content: "(10%).";
 }
-

@@ -28,7 +28,6 @@ async function loadProductDetails() {
     addToCartBtn.addEventListener("click", () => addProductToCart(product));
   } catch (error) {
     handleProductNotFound();
-
   }
 }
 
