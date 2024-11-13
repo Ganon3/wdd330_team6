@@ -10,6 +10,16 @@
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
+      <!-- product sort dropdown -->
+      <div class="sort-options">
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+          <option value="name">Product Name</option>
+          <option value="priceLowToHigh">Price: Low to High</option>
+          <option value="priceHighToLow">Price: High to Low</option>
+        </select>
+      </div>
+      <div id="productList"></div>
       <section class="products">
         <h2>Top Products: <span class="title"></span></h2>
         <ul class="product-list"></ul>
