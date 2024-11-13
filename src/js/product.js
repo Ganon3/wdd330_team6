@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
 import { getParam, updateCartCount, loadHeaderFoote, alertMessage } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
@@ -62,6 +62,7 @@ function addProductToCart(product) {
 
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
+  alertMessage(`${product.NameWithoutBrand} added to cart!`);
   // after it pushes the item, it updates the count w/out refreshing
   updateCartCount();
 }
