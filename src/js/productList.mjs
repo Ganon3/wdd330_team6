@@ -20,8 +20,8 @@ function productCardTemplate(product) {
 export default async function productList(selector, category) {
   const el = document.querySelector(selector);
   const products = await getProductsByCategory(category);
-  // render the list of products - bug at line 24
-  renderListWithTemplate(productCardTemplate, el, products);
+  // render the list of products
+  renderListWithTemplate(productCardTemplate, el, products); // bug
   // set the title for the category
   document.querySelector(".title").innerHTML = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
   // return the products and the element for sorting
