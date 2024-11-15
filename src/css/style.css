@@ -194,7 +194,7 @@ header {
 }
 
 button:hover {
-  border: solid 1px black;
+  background-color: #697413;
 }
 
 button {
@@ -203,9 +203,11 @@ button {
   color: white;
   margin: auto;
   display: block;
-  border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -321,17 +323,32 @@ button {
   font-size: 1em;
 }
 /* End product list card */
-
 .product-detail {
   padding: 1em;
   max-width: 500px;
   margin: auto;
 }
-
 .product-detail img {
   width: 100%;
 }
 /* checkout styles */
+form {
+  padding: 5px;
+}
+legend {
+  margin: 5px;
+}
+label {
+  margin: 5px;
+}
+fieldset {
+  display: grid;
+  padding: 5px;
+  margin: 10px;
+}
+fieldset ul {
+  padding: 0 15px 0 0;
+}
 .checkout-form {
   padding: 0.5em;
 }
@@ -355,6 +372,9 @@ button {
 .checkout-summary input {
   width: 25%;
   font-size: 1em;
+}
+#checkoutSubmit {
+  margin: 20px auto; 
 }
 /* Start cart list card styles */
 .cart-card {
@@ -451,6 +471,27 @@ button {
   padding-top: 60px;
 }
 
+.quick-view-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #003366;
+  color: #ffffff;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quick-view-button:hover {
+  background-color: #002244;
+}
+
+.quick-view-button:focus {
+  outline: 2px solid #003366;
+  outline-offset: 2px;
+}
+
 .modal-content {
   background-color: #fff;
   margin: 5% auto;
@@ -474,6 +515,54 @@ button {
 }
 /* end modal style */
 
+/* registration */
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Button styling */
+#register-btn, #close-banner {
+  background-color: #ff9900;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+#close-banner {
+  background-color: #777;
+}
+
+#register-btn {
+  background-color: #ff9900;
+}
+
+#close-banner {
+  background-color: #777;
+  margin-left: 10px;
+}
+/* end registration */
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -498,13 +587,17 @@ footer {
   grid-row: 2;
   grid-column: 4;
   color: black;
-  padding: 20px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+/* added because default button color was overriding - km */
+button.remove_item {
   background-color: #f0a868;
 }
 .remove_item:hover {
-  border: solid 2px #525b0f;
+  border: solid 1px #ce7c35;
 }
 
-.product-card__price::after {
+.product-card__price:after {
   content: "(10%).";
 }
