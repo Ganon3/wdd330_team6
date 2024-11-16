@@ -13,5 +13,5 @@ document.querySelector("#loginButton").addEventListener("click", (e) => {
   e.preventDefault();
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
-  login({ email: "user1@email.com", password: "user1" }, redirect);
+  login({ email, password }, redirect);
 });

@@ -25,10 +25,10 @@ export function checkLogin() {
     }   else return token;
 }
 
-function isTokenValid() {
+function isTokenValid(token) {
     if (token) {
         const decoded = jwtDecode(token);
-        let currentDate = newDate();
+        let currentDate = new Date();
         if (decoded.exp * 1000 < currentDate.getTime()) {
             console.log("Token expired.");
             return false;
@@ -36,5 +36,5 @@ function isTokenValid() {
             console.log("Valid Token");
             return true;
         }
-    }else return false;
+    } else return false;
 }
