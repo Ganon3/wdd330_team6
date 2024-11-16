@@ -25,7 +25,7 @@ export function checkLogin() {
     }   else return token;
 }
 
-function isTokenValid() {
+function isTokenValid(token) {
     if (token) {
         const decoded = jwtDecode(token);
         let currentDate = new Date();
