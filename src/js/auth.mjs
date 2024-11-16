@@ -19,10 +19,10 @@ export function checkLogin() {
     const valid = isTokenValid(token);
     if (!valid) {
         localStorage.removeItem(tokenKey);
-    const location = window.location;
-    console.log(location);
-    window.location = `/login/index.html?redirect=${location.pathname}`;
-    }else return token;
+        const location = window.location;
+        console.log(location);
+        window.location = `/login/index.html?redirect=${location.pathname}`;
+    }   else return token;
 }
 
 function isTokenValid() {
