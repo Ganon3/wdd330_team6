@@ -1,4 +1,11 @@
-import { setLocalStorage, getLocalStorage, alertMessage, getParam, updateCartCount, loadHeaderFooter } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  alertMessage,
+  getParam,
+  updateCartCount,
+  loadHeaderFooter,
+} from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
 import productDetails from "./productDetail.mjs";
 
