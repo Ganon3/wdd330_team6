@@ -1,6 +1,5 @@
-import { setLocalStorage, getLocalStorage, alertMessage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage, getParam, updateCartCount, loadHeaderFooter } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
-import { getParam, updateCartCount, loadHeaderFooter } from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
 
 // this loads the updateCartCount after the content is loaded
