@@ -5,7 +5,7 @@ import {
   getParam,
   updateCartCount,
   loadHeaderFooter,
-  breadcrumbs
+  breadcrumbs,
 } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
 import productDetails from "./productDetail.mjs";

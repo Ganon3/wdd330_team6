@@ -14,7 +14,6 @@ productList(".product-list", category).then(() => {
   breadcrumbs("Products", `${category.toUpperCase()} ${count}`);
 });
 
-
 // this loads the updateCartCount after the content is loaded
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {

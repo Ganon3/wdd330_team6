@@ -1,9 +1,15 @@
-import { getParam, loadHeaderFooter, updateCartCount } from "./utils.mjs";
+import {
+  getParam,
+  loadHeaderFooter,
+  updateCartCount,
+  breadcrumbs,
+} from "./utils.mjs";
 import { login } from "./auth.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {
     updateCartCount();
+    breadcrumbs("Login");
   });
 });
 
