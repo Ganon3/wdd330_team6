@@ -6,68 +6,83 @@
     <title>Sleep Outside | Checkout</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
-    
   </head>
   <body>
-
     <header class="divider" id="main-header"></header>
     <main class="divider checkout">
-
       <h2>Review &amp; Place your Order</h2>
       <section class="checkout-form"></section>
 
       <form name="checkout">
         <fieldset>
-                                <!-- temp diplay -->
-          <fieldset style="display: grid;">
+          <!-- style belongs in css not in html -->
+          <fieldset>
             <legend>Shipping</legend>
-            <label> First Name <input id="fname" type="text" name="fname" required> </label>
-            <label> Last Name <input id="lname" type="text" name="lname" required> </label>
+            <label>
+              First Name <input id="fname" type="text" name="fname" required />
+            </label>
+            <label>
+              Last Name <input id="lname" type="text" name="lname" required />
+            </label>
             <!-- <label> Title or Position <input id="title" type="text" name="title" pattern="[A-Z-]{7,0}"> </label>
             <label> Email* <input id="email" type="email" name="email" placeholder="someone@gmail.com" required> </label>
             <label> Phone* <input id="phone" type="tel" name="phone" placeholder="123-555-1234" required> </label> -->
-            <label> Street <input id="street" type="text" name="street" required></label>
-            <label> City <input id="city" type="text" name="city" required></label>
-            <label> State <input id="state" type="text" name="state" required></label>
-            <label> Zip <input id="zip" type="number" name="zip" required></label>
-        </fieldset>
-                             <!-- temp diplay -->
-        <fieldset style="display: grid;">
-          <legend>Payment</legend>
+            <label>
+              Street <input id="street" type="text" name="street" required
+            /></label>
+            <label>
+              City <input id="city" type="text" name="city" required
+            /></label>
+            <label>
+              State <input id="state" type="text" name="state" required
+            /></label>
+            <label>
+              Zip <input id="zip" type="number" name="zip" required
+            /></label>
+          </fieldset>
 
-          <label> Card number <input id="cardNumber" type="number" name="cardNumber" required></label>
-          <label> Expiration <input id="expiration" type="text" name="expiration" required></label>
-          <label> Security Code <input id="code" type="number" name="code" required></label>
+          <fieldset>
+            <legend>Payment</legend>
+            <label>
+              Card number
+              <input id="cardNumber" type="number" name="cardNumber" required
+            /></label>
+            <label>
+              Expiration
+              <input id="expiration" type="text" name="expiration" required
+            /></label>
+            <label>
+              Security Code <input id="code" type="number" name="code" required
+            /></label>
+          </fieldset>
 
-        </fieldset>
-
-        <fieldset class="checkout-summary">
-          <legend>Order Summary</legend>
-          <ul>
-            <li>
-              <label for="cartTotal"
-                >Item Subtotal(<span id="num-items">xx</span>)</label>
-                <p name="cartTotal" id="cartTotal">xx.xx</p>
-            </li>
-            <li>
-              <label for="shipping">ShippingEstimate</label>
-              <p id="shipping">xx.xx</p>
-            </li>
-            <li>
-              <label for="tax">Tax</label>
-              <p id="tax">xx.xx</p>
-            </li>
-            <li>
-              <label for="orderTotal"><b>Order Total</b></label>
-              <p id="orderTotal">xx.xx</p>
-            </li>
-          </ul>
+          <fieldset class="checkout-summary">
+            <legend>Order Summary</legend>
+            <ul>
+              <li>
+                <label for="cartTotal"
+                  >Item Subtotal (<span id="num-items"></span>)</label
+                >
+                <p name="cartTotal" id="cartTotal"></p>
+              </li>
+              <li>
+                <label for="shipping">ShippingEstimate:</label>
+                <p id="shipping">$0</p>
+              </li>
+              <li>
+                <label for="tax">Tax:</label>
+                <p id="tax">$0</p>
+              </li>
+              <li>
+                <label for="orderTotal"><b>Order Total:</b></label>
+                <p id="orderTotal">$0</p>
+              </li>
+            </ul>
+          </fieldset>
         </fieldset>
         <button id="checkoutSubmit" type="submit">Checkout</button>
       </form>
-
     </main>
     <footer id="main-footer"></footer>
-    
   </body>
 </html>

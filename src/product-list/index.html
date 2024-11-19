@@ -10,11 +10,32 @@
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
+      <!-- product sort dropdown -->
+      <div class="sort-options">
+        <label for="sortSelect">Sort by:</label>
+        <select id="sortSelect">
+          <option>-- Pick Me --</option>
+          <option value="name">Name</option>
+          <option value="priceLowToHigh">Price: Low to High</option>
+          <option value="priceHighToLow">Price: High to Low</option>
+        </select>
+      </div>
+      <div id="productList"></div>
       <section class="products">
         <h2>Top Products: <span class="title"></span></h2>
         <ul class="product-list"></ul>
       </section>
     </main>
+    <!-- added quick view modal -->
+    <div id="quick-view-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2 id="modal-product-name"></h2>
+        <img id="modal-product-image" src="" alt="" />
+        <p id="modal-product-description"></p>
+        <p id="modal-product-price"></p>
+      </div>
+    </div>
     <footer id="main-footer"></footer>
   </body>
 </html>

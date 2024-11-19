@@ -1,12 +1,13 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { findProductById } from "./externalServices.mjs";
 import {
+  setLocalStorage,
+  getLocalStorage,
+  alertMessage,
   getParam,
   updateCartCount,
   loadHeaderFooter,
-  alertMessage,
-  breadcrumbs,
+  breadcrumbs
 } from "./utils.mjs";
+import { findProductById } from "./externalServices.mjs";
 import productDetails from "./productDetail.mjs";
 
 // added Team Activity 2
@@ -69,6 +70,7 @@ function addProductToCart(product) {
 
   cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
+  alertMessage(`${product.NameWithoutBrand} added to cart!`);
   // after it pushes the item, it updates the count w/out refreshing
   updateCartCount();
 }
