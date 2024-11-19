@@ -130,3 +130,12 @@ export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
+
+export function breadcrumbs(location, catagory = "", show = true) {
+
+  if (show) {
+              const crum = document.getElementById("breadcrumbs");
+              crum.textContent = location;
+              if (catagory != "") crum.textContent += " " + catagory
+            }
+}

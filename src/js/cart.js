@@ -3,6 +3,7 @@ import {
   setLocalStorage,
   updateCartCount,
   loadHeaderFooter,
+  breadcrumbs,
 } from "./utils.mjs";
 import shoppingCart from "./shoppingCart.mjs";
 
@@ -10,6 +11,7 @@ import shoppingCart from "./shoppingCart.mjs";
 // took out event listener because it is stable now - km
 loadHeaderFooter().then(() => {
   renderCartContents();
+  breadcrumbs("Carts");
 });
 
 function renderCartContents() {

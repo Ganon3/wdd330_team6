@@ -1,8 +1,9 @@
-import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
+import { loadHeaderFooter, updateCartCount, breadcrumbs } from "./utils.mjs";
 import checkoutProcess from "./checkoutProcess.mjs";
 
 loadHeaderFooter().then(() => {
   updateCartCount();
+  breadcrumbs("Chechout");
 });
 
 checkoutProcess.init("so-cart", ".checkout-summary");

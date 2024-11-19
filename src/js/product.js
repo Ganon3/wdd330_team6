@@ -1,15 +1,22 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
-import { getParam, updateCartCount, loadHeaderFoote, alertMessage } from "./utils.mjs";
+import {
+  getParam,
+  updateCartCount,
+  loadHeaderFooter,
+  alertMessage,
+  breadcrumbs,
+} from "./utils.mjs";
 import productDetails from "./productDetail.mjs";
+
+// added Team Activity 2
+const productId = getParam("product");
 
 // this loads the updateCartCount after the content is loaded
 loadHeaderFooter().then(() => {
   updateCartCount();
+  breadcrumbs("Product", productId);
 });
-
-// added Team Activity 2
-const productId = getParam("product");
 
 // this fixes the error handling for the product detail page
 async function loadProductDetails() {
