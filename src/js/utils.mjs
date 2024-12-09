@@ -87,9 +87,24 @@ export async function loadHeaderFooter() {
   const footer = document.getElementById("main-footer");
 
   await renderWithTemplate(headerTemplateFn, header);
+  await setupsearch();
   await renderWithTemplate(footerTemplateFn, footer);
 }
+export async function setupsearch() {
+  const search = document.getElementById("search");
+  if (search) {
+    search.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+              event.preventDefault();
+              let searchValue = search.value;
+              if(searchValue) {
+                 window.location.href = `/product-list/index.html?category=${searchValue}`
+              }
+          }
+      });
 
+  }
+}
 // this is here because it's used in the main, product and cart pages.
 export function updateCartCount() {
   const cartItems = getLocalStorage("so-cart");
