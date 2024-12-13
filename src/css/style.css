@@ -48,17 +48,19 @@ header {
 }
 
 .container-2 input#search {
-  width: 50px;
-  height: 50px;
-  background: #2b303b;
+  width:200px;
+  height: 35px;
+  background: #a4b8c445;
   border: none;
   font-size: 10pt;
-  float: left;
+  float: right;
   color: #262626;
   padding-left: 35px;
-  border-radius: 5px;
+  border-radius: 509px;
   color: #fff;
   transition: width 0.55s ease;
+  margin-right: -50px;
+  margin-top: 5px;
 }
 
 .container-2 input#search::-webkit-input-placeholder {
@@ -81,12 +83,13 @@ header {
 
 .container-2 .icon {
   position: absolute;
-  /* float: right; */
+  float: right;
   top: 50%;
-  margin-left: 17px;
-  margin-top: 17px;
+  margin-left: 160px;
+  margin-top: 11px;
   z-index: 1;
   color: #4f5b66;
+  
 }
 
 .container-2 input#search:focus,
