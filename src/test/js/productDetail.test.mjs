@@ -8,6 +8,9 @@ import { setLocalStorage, getLocalStorage } from "../../js/utils.mjs";
 vi.mock('../../js/externalServices.mjs');
 vi.mock('../../js/utils.mjs');
 const mockDom = {};
+global.window = {
+  scrollTo: vi.fn()
+}
 global.document = {
   getElementById: vi.fn().mockImplementation((id) => {
     const element = {

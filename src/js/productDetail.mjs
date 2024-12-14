@@ -1,5 +1,6 @@
+import { setupCarousel } from "./carousel.mjs";
 import { findProductById } from "./externalServices.mjs";
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, renderListWithTemplate } from "./utils.mjs";
 
 let product = {};
 
@@ -16,10 +17,25 @@ export default async function productDetails(productId, selector) {
  function renderProductDetails() {
     document.querySelector("#productName").innerText = product.Brand.Name;
     document.querySelector("#productNameWithoutBrand").innerText = product.NameWithoutBrand;
-    document.querySelector("#productImage").src = product.Images.PrimaryLarge;
-    document.querySelector("#productImage").alt = product.Name;
+    if(product.Images.ExtraImages?.length > 0){
+      document.querySelector("#productImage").remove()
+      const images = product.Images.ExtraImages.concat([{Src: product.Images.PrimaryLarge, Title: product.Name}]);
+      renderListWithTemplate(extraDetailSlide, document.querySelector("#extraImages"), images);
+      setupCarousel();
+    } else {
+      document.querySelector("#productImage").src = product.Images.PrimaryLarge;
+      document.querySelector("#productImage").alt = product.Name;
+    }
     document.querySelector("#productFinalPrice").innerText = `${product.FinalPrice}\$ or ${(product.FinalPrice * .90).toFixed(2)}\$ with discount`;
     document.querySelector("#productColorName").innerText = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML =product.DescriptionHtmlSimple;
     document.querySelector("#addToCart").dataset.id = product.Id;
+}
+
+function extraDetailSlide(item) {
+  return `
+  <div class="slide hidden"> 
+        <img class="divider" src="${item.Src}" alt="${item.Title}" />
+  </div>
+        `;
 }
