@@ -9,7 +9,7 @@ export default async function productDetails(productId, selector) {
   // add a listener to Add to Cart button
     product = await findProductById(productId);
     renderProductDetails();
-    document.getElementById("addToCart").addEventListener("click", addToCart);
+    // document.getElementById("addToCart").addEventListener("click", addToCart);
     
   }
 
