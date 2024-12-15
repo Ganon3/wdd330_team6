@@ -23,7 +23,8 @@ vi.stubGlobal('window', {
     href: '',
     pathname: '/current',
     assign: vi.fn()
-  }
+  },
+  scrollTo: vi.fn()
 });
 vi.stubGlobal('localStorage', {
   removeItem: vi.fn()
