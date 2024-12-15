@@ -7,8 +7,13 @@ const tokenKey = "so-token";
 export async function login(creds, redirect = "/") {
     try {
         const token = await loginRequest(creds);
+        console.log('Attempting to redirect to:', redirect);
         setLocalStorage(tokenKey, token);
-        window.location = redirect;
+        if (redirect) {
+            window.location = redirect;
+        } else {
+            window.location = "/";
+        }
     } catch (err) {
         alertMessage(err.message.message);
     }
