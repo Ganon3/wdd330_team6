@@ -24,7 +24,8 @@ import {
         id: item.Id,
         price: item.FinalPrice,
         name: item.Name,
-        quantity: 1,
+        color: item.Color.ColorCode,
+        quantity: item.Quantity,
       };
     });
     return simplifiedItems;
@@ -84,9 +85,9 @@ import {
       json.orderTotal = this.orderTotal;
       json.tax = this.tax;
       json.shipping = this.shipping;
-      json.items = packageItems(this.list);
-      console.log(json);
       try {
+        json.items = packageItems(this.list);
+        console.log(json);
         const res = await checkout(json);
         console.log(res);
         setLocalStorage("so-cart", []);

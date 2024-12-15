@@ -60,9 +60,17 @@ function addProductToCart(product) {
   if (!Array.isArray(cartItems)) {
     cartItems = [];
   } else {
-    const existingProduct = cartItems.find((item) => item.Id === product.Id);
+    let selectedColor = product.Colors[0];
+    if(document.querySelector("#productColors").innerHTML){
+      const colorIndex = document.querySelector(".color-option.selected").dataset.colorIndex;
+      if(colorIndex && product.Colors[colorIndex]){
+        selectedColor = product.Colors[colorIndex];
+      }
+    }
+    product.Color = selectedColor;
+    const existingProduct = cartItems.find((item) => item.Id === product.Id && item.Color.ColorCode == product.Color.ColorCode);
     if (existingProduct) {
-      cartItems = cartItems.filter((item) => item.Id !== product.Id);
+      cartItems = cartItems.filter((item) => item.Id !== product.Id && item.Color.ColorCode != product.Color.ColorCode);
       product.Quantity = (existingProduct.Quantity ?? 1) + 1;
     }
     alertMessage(`${product.NameWithoutBrand} added to cart!`);

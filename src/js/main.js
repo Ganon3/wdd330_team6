@@ -1,4 +1,4 @@
-import productList from "./productList.mjs";
+import { productList } from "./productList.mjs";
 import { loadHeaderFooter, updateCartCount, breadcrumbs } from "./utils.mjs";
 
 // this loads the updateCartCount after the content is loaded
