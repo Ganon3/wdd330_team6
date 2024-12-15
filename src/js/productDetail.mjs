@@ -4,6 +4,8 @@ import { setLocalStorage, getLocalStorage, renderListWithTemplate } from "./util
 
 let product = {};
 
+const discount = 0.10
+
 export default async function productDetails(productId, selector) {
   // use findProductById to get the details for the current product. findProductById will return a promise! use await or .then() to process it
   // once we have the product details we can render out the HTML
@@ -26,7 +28,21 @@ export default async function productDetails(productId, selector) {
       document.querySelector("#productImage").src = product.Images.PrimaryLarge;
       document.querySelector("#productImage").alt = product.Name;
     }
-    document.querySelector("#productFinalPrice").innerText = `${product.FinalPrice}\$ or ${(product.FinalPrice * .90).toFixed(2)}\$ with discount`;
+    // debugger
+    if(product.FinalPrice < product.SuggestedRetailPrice){
+      const discount = (product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice;
+      const discountHtml = `<span class="sale-tag">SALE</span>
+          <span class="discount-tag">${(discount*100).toFixed(0)}%</span>`
+      document.querySelector(".sale-badge").innerHTML = discountHtml
+
+      const priceHtml = `<span class="current-price">\$${product.FinalPrice.toFixed(2)}</span>
+          <span class="original-price">\$${product.SuggestedRetailPrice.toFixed(2)}</span>`
+      document.querySelector("#productFinalPrice").innerHTML = priceHtml;
+
+    } else {
+      document.querySelector("#productFinalPrice").innerText = `\$${(product.FinalPrice)}`;
+      
+    }
     document.querySelector("#productColorName").innerText = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML =product.DescriptionHtmlSimple;
     document.querySelector("#addToCart").dataset.id = product.Id;

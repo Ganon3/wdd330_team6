@@ -571,9 +571,6 @@ button.remove_item {
   border: solid 1px #ce7c35;
 }
 
-.product-card__price:after {
-  content: "(10%).";
-}
 
 /*carousel*/
 
@@ -622,3 +619,86 @@ button.remove_item {
   margin-top: 1rem;
 }
 /* end carousel */
+/* discount tags */
+.sale-badge {
+  /* position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 4px; */
+}
+
+.sale-tag {
+  background: #ff6b00;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.discount-tag {
+  background: #ff6b00;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.current-price {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.original-price {
+  color: #999;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+/* end discounts tags
+
+/* newsletter */
+
+.newsletter-signup {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.newsletter-signup h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.newsletter-signup form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter-signup input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.newsletter-signup button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-signup button:hover {
+  background-color: #4cae4c;
+}
+
