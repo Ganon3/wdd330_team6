@@ -24,7 +24,8 @@ import {
         id: item.Id,
         price: item.FinalPrice,
         name: item.Name,
-        quantity: 1,
+        color: item.Color.ColorCode,
+        quantity: item.Quantity,
       };
     });
     return simplifiedItems;
