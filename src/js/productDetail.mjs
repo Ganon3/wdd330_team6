@@ -32,7 +32,7 @@ export default async function productDetails(productId, selector) {
     if(product.FinalPrice < product.SuggestedRetailPrice){
       const discount = (product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice;
       const discountHtml = `<span class="sale-tag">SALE</span>
-          <span class="discount-tag">${(discount*100).toFixed(0)}%</span>`
+          <span class="discount-tag">${(discount * 100).toFixed(0)}%</span>`
       document.querySelector(".sale-badge").innerHTML = discountHtml
 
       const priceHtml = `<span class="current-price">\$${product.FinalPrice.toFixed(2)}</span>
@@ -45,7 +45,7 @@ export default async function productDetails(productId, selector) {
     }
     document.querySelector("#productColorName").innerText = product.Colors[0].ColorName;
     if(product.Colors.length > 1){
-        const colorHtml =`<div class="color-selector">
+        const colorHtml = `<div class="color-selector">
         <h4>Color Options:</h4>
         <div class="color-options">
           
@@ -68,7 +68,7 @@ export default async function productDetails(productId, selector) {
         });
       });
     }
-    document.querySelector("#productDescriptionHtmlSimple").innerHTML =product.DescriptionHtmlSimple;
+    document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;
     document.querySelector("#addToCart").dataset.id = product.Id;
 }
 

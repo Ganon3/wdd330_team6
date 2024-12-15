@@ -1,10 +1,11 @@
 {
-  "plugins": ["import"],
+  "plugins": ["vitest", "import"],
   "extends": ["eslint:recommended", "plugin:import/errors", "prettier"],
   "env": {
     "es6": true,
     "browser": true,
     "node": true,
+    // comment out the line before to run "npm run lint:fix". this is needed when opening unit tests
     "vitest/globals": true
   },
   "parserOptions": {
