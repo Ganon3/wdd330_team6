@@ -8,6 +8,11 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 
 - You must have Node installed. visit https://byui-cit.github.io/advcss/lesson01/l01-software.html and skip to the Node section for instructions
 
+## Valid test login
+* user1@email.com / user1
+## Valid test credit card
+* anu 16 digit number
+
 ## Setup
 
 - `npm install`

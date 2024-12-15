@@ -702,3 +702,37 @@ button.remove_item {
   background-color: #4cae4c;
 }
 
+/* color selector */
+.color-selector {
+  margin-top: 16px;
+}
+
+.color-selector h4 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.color-options {
+  display: flex;
+  gap: 8px;
+}
+
+.color-option {
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.color-option:hover {
+  border-color: #999;
+}
+
+button.color-option {
+  background-color: transparent;
+}
+
+.color-option.selected {
+  border-color: #333;
+}
+
