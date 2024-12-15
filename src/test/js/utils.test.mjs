@@ -220,6 +220,7 @@ describe("alertMessage", () => {
   });
 
   it("should create and prepend alert message", () => {
+    global.scrollTo = vi.fn();
     alertMessage("Test Alert");
     const alert = document.querySelector(".alert");
     expect(alert).not.toBeNull();
