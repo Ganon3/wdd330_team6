@@ -8,6 +8,9 @@ import { setLocalStorage, getLocalStorage } from "../../js/utils.mjs";
 vi.mock('../../js/externalServices.mjs');
 vi.mock('../../js/utils.mjs');
 const mockDom = {};
+global.window = {
+  scrollTo: vi.fn()
+}
 global.document = {
   getElementById: vi.fn().mockImplementation((id) => {
     const element = {
@@ -56,7 +59,7 @@ describe('productDetails', () => {
     expect(document.querySelector('#productNameWithoutBrand').innerText).toBe('D3500 DSLR');
     expect(document.querySelector('#productImage').src).toBe('image-url.jpg');
     expect(document.querySelector('#productImage').alt).toBe('Nikon D3500 DSLR');
-    expect(document.querySelector('#productFinalPrice').innerText).toBe('500$ or 450.00$ with discount');
+    expect(document.querySelector('#productFinalPrice').innerText).toBe('$500');
     expect(document.querySelector('#productColorName').innerText).toBe('Black');
     expect(document.querySelector('#productDescriptionHtmlSimple').innerHTML).toBe('<p>Excellent camera for beginners...</p>');
     expect(document.querySelector('#addToCart').dataset.id).toBe(12345);

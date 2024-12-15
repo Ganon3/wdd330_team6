@@ -3,17 +3,37 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 // this is the template for rendering individual product cards
 function productCardTemplate(product) {
-  return `
-    <li class="product-card">
-      <a href="/product_pages/index.html?product=${product.Id}">
-        <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}" />
-        <h3 class="card__brand">${product.Brand.Name}</h3>
-        <h2 class="card__name">${product.NameWithoutBrand}</h2>
-        <p class="product-card__price">$${product.FinalPrice}</p>
-      </a>
-      <button class="quick-view-button" data-id="${product.Id}">Quick View</button>
-    </li>
-  `;
+  if(product.FinalPrice < product.SuggestedRetailPrice){
+    const discount = (product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice;
+    return `
+      <li class="product-card">
+        <a href="/product_pages/index.html?product=${product.Id}">
+          <div class="sale-badge"><span class="sale-tag">SALE</span>
+        <span class="discount-tag">${(discount*100).toFixed(0)}%</span></div>
+          <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}" />
+          <h3 class="card__brand">${product.Brand.Name}</h3>
+          <h2 class="card__name">${product.NameWithoutBrand}</h2>
+          <p class="product-card__price"><span class="current-price">\$${product.FinalPrice.toFixed(2)}</span>
+        <span class="original-price">\$${product.SuggestedRetailPrice.toFixed(2)}</span></p>
+        </a>
+        <button class="quick-view-button" data-id="${product.Id}">Quick View</button>
+      </li>
+    `;
+
+  } else {
+    return `
+      <li class="product-card">
+        <a href="/product_pages/index.html?product=${product.Id}">
+          <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}" />
+          <h3 class="card__brand">${product.Brand.Name}</h3>
+          <h2 class="card__name">${product.NameWithoutBrand}</h2>
+          <p class="product-card__price">$${product.FinalPrice}</p>
+        </a>
+        <button class="quick-view-button" data-id="${product.Id}">Quick View</button>
+      </li>
+    `;
+    
+  }
 }
 
 // fetch products by category and render them
