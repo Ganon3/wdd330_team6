@@ -41,5 +41,8 @@
   ],
   "dependencies": {
     "jwt-decode": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.28.1"
   }
 }
