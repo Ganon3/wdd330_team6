@@ -103,7 +103,9 @@ describe("renderListWithTemplate", () => {
     renderListWithTemplate(templateFn, parentElement, list);
 
     expect(parentElement.innerHTML).toBe("<div>item1</div><div>item2</div>");
-    list.map((item,index,mapList) => expect(templateFn).toHaveBeenCalledWith(item, index, mapList));
+    list.map((item, index, mapList) =>
+      expect(templateFn).toHaveBeenCalledWith(item, index, mapList)
+    );
   });
 
   it("should clear parent element if clear is true", () => {

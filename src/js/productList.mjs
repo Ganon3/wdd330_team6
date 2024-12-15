@@ -2,7 +2,7 @@ import { getProductsByCategory } from "./externalServices.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 // this is the template for rendering individual product cards
-function productCardTemplate(product) {
+export function productCardTemplate(product) {
   if(product.FinalPrice < product.SuggestedRetailPrice){
     const discount = (product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice;
     return `
@@ -27,7 +27,7 @@ function productCardTemplate(product) {
           <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}" />
           <h3 class="card__brand">${product.Brand.Name}</h3>
           <h2 class="card__name">${product.NameWithoutBrand}</h2>
-          <p class="product-card__price">$${product.FinalPrice}</p>
+          <p class="product-card__price">$${product.FinalPrice.toFixed(2)}</p>
         </a>
         <button class="quick-view-button" data-id="${product.Id}">Quick View</button>
       </li>
@@ -37,7 +37,7 @@ function productCardTemplate(product) {
 }
 
 // fetch products by category and render them
-export default async function productList(selector, category) {
+export async function productList(selector, category) {
   const el = document.querySelector(selector);
   const products = await getProductsByCategory(category);
   // render the list of products
