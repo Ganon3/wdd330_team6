@@ -43,6 +43,7 @@
     "jwt-decode": "^4.0.0"
   },
   "optionalDependencies": {
+    "@esbuild/linux-x64": "^0.24.0",
     "@rollup/rollup-linux-x64-gnu": "^4.28.1"
   }
 }
