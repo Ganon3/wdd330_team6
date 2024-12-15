@@ -16,14 +16,14 @@ function cartItemTemplate(item) {
       <li id="${item.Id}" class="cart-card divider">
         <a href="../product_pages/index.html?product=${item.Id}" class="cart-card__image">
           <img 
-          src="${item.Color.ColorPreviewImageSrc}" 
+          src="${item.Color?.ColorPreviewImageSrc ?? ""}" 
           alt="${item.Name}" 
           />
         </a>
         <a href="#">
           <h2 class="card__name">${item.Name}</h2>
         </a>
-        <p class="cart-card__color">${item.Color?.ColorName}</p>
+        <p class="cart-card__color">${item.Color?.ColorName ?? ""}</p>
         <p class="cart-card__quantity">qty: ${item.Quantity}</p>
         <p class="cart-card__price"><span class="current-price">\$${item.FinalPrice.toFixed(2)}</span>
         <span class="original-price">\$${item.SuggestedRetailPrice.toFixed(2)}</span></p>
@@ -34,16 +34,16 @@ function cartItemTemplate(item) {
     <li id="${item.Id}" class="cart-card divider">
       <a href="../product_pages/index.html?product=${item.Id}" class="cart-card__image">
         <img 
-        src="${item.Color.ColorPreviewImageSrc}" 
+        src="${item.Color?.ColorPreviewImageSrc ?? ""}" 
         alt="${item.Name}" 
         />
       </a>
       <a href="#">
         <h2 class="card__name">${item.Name}</h2>
       </a>
-      <p class="cart-card__color">${item.Color?.ColorName}</p>
+      <p class="cart-card__color">${item.Color?.ColorName ?? ""}</p>
       <p class="cart-card__quantity">qty: ${item.Quantity}</p>
-      <p class="cart-card__price">$${item.FinalPrice}</p>
+      <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>
       <button type="button" class="remove_item" data-id="${item.Id}">X</button>
     </li>`;
 }
