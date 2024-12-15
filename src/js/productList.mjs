@@ -9,7 +9,7 @@ export function productCardTemplate(product) {
       <li class="product-card">
         <a href="/product_pages/index.html?product=${product.Id}">
           <div class="sale-badge"><span class="sale-tag">SALE</span>
-        <span class="discount-tag">${(discount*100).toFixed(0)}%</span></div>
+        <span class="discount-tag">${(discount * 100).toFixed(0)}%</span></div>
           <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}" />
           <h3 class="card__brand">${product.Brand.Name}</h3>
           <h2 class="card__name">${product.NameWithoutBrand}</h2>
