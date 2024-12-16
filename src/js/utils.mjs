@@ -1,3 +1,5 @@
+import { updateAuth } from "./auth.mjs";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -89,6 +91,7 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(headerTemplateFn, header);
   await setupsearch();
   await renderWithTemplate(footerTemplateFn, footer);
+  updateAuth();
 }
 export async function setupsearch() {
   const search = document.getElementById("search");
@@ -146,8 +149,18 @@ export function removeAllAlerts() {
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
 
-export function breadcrumbs(location, catagory = "", show = true) {
-
+/**
+ * Displays a breadcrumb at the top of the page
+ * @param {string} location 
+ * @param {object} options {catagory: "", show: true}
+ */
+export function breadcrumbs(location, options = {}) {
+  const defaults = {
+    catagory: "",
+    show: true,
+  }
+  const settings = Object.assign(defaults, options);
+  const { catagory, show } = settings
   if (show) {
               const crum = document.getElementById("breadcrumbs");
               crum.textContent = location;

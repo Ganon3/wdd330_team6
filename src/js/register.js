@@ -4,24 +4,27 @@ import {
   updateCartCount,
   breadcrumbs,
 } from "./utils.mjs";
-import { login } from "./auth.mjs";
+import { login, signup } from "./auth.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {
     updateCartCount();
-    breadcrumbs("Login");
-    document.querySelector("#registerButton").addEventListener("click", (e) => {
+    breadcrumbs("Register");
+    document.querySelector("#loginButton").addEventListener("click", (e) => {
       e.preventDefault();
-      window.location = "/register/index.html";
+      window.location = "/login/index.html";
     })
   });
 });
 
 // const redirect = getParam("redirect");
 
-document.querySelector("#loginButton").addEventListener("click", (e) => {
+document.querySelector("#registerButton").addEventListener("click", (e) => {
   e.preventDefault();
+  const name = document.querySelector("#name").value;
+  const address = document.querySelector("#address").value;
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
-  login({ email, password }, "/");
+
+  signup({ name, address, email, password }, "/");
 });

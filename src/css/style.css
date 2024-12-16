@@ -488,7 +488,12 @@ fieldset ul {
   padding-top: 60px;
 }
 
-.quick-view-button {
+.login-header {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.quick-view-button, .login-btn {
   display: inline-block;
   padding: 8px 16px;
   background-color: #003366;
@@ -500,11 +505,31 @@ fieldset ul {
   transition: background-color 0.2s ease;
 }
 
-.quick-view-button:hover {
+.signup {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #003366;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+.signup:hover {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+
+.quick-view-button:hover, .login-btn:hover {
   background-color: #002244;
 }
 
-.quick-view-button:focus {
+.quick-view-button:focus, .login-btn:focus  {
   outline: 2px solid #003366;
   outline-offset: 2px;
 }
