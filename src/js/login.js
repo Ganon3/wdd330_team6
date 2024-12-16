@@ -9,7 +9,7 @@ import { login } from "./auth.mjs";
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {
     updateCartCount();
-    breadcrumbs("Login");
+    breadcrumbs([{name:"Login"}]);
     document.querySelector("#registerButton").addEventListener("click", (e) => {
       e.preventDefault();
       window.location = "/register/index.html";

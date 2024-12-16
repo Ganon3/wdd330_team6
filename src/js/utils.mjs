@@ -91,6 +91,7 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(headerTemplateFn, header);
   await setupsearch();
   await renderWithTemplate(footerTemplateFn, footer);
+
   updateAuth();
 }
 export async function setupsearch() {
@@ -122,6 +123,7 @@ export function updateCartCount() {
   cartCountElement.textContent = cartArray.length;
   cartCountElement.classList.remove("hidden");
 }
+
 export function alertMessage(message, scroll = true, duration = 3000) {
   const alert = document.createElement("div");
   alert.classList.add("alert");
@@ -149,21 +151,20 @@ export function removeAllAlerts() {
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
 
-/**
- * Displays a breadcrumb at the top of the page
- * @param {string} location 
- * @param {object} options {catagory: "", show: true}
- */
-export function breadcrumbs(location, options = {}) {
-  const defaults = {
-    catagory: "",
-    show: true,
+export function breadcrumbs(crumbs) {
+  if(crumbs && crumbs.length > 0){
+    const headDivider = document.getElementById("main-header")
+    headDivider.insertAdjacentHTML("afterend", '<div class="divider" id="breadcrumbs"></div>');
+    const crum = document.getElementById("breadcrumbs");
+    let crumbHtml = ""
+    for (let i = 0; i < crumbs.length; i++) {
+      if(crumbHtml.length > 0) crumbHtml += " > "
+      if(crumbs[i].location){
+        crumbHtml += `<a href="${crumbs[i].location}"><span data-crumb=${i}>${crumbs[i].name}</span></a>`
+      }else
+        crumbHtml += `<span data-crumb=${i}>${crumbs[i].name}</span>`;
+    }
+    crum.innerHTML = crumbHtml;
+
   }
-  const settings = Object.assign(defaults, options);
-  const { catagory, show } = settings
-  if (show) {
-              const crum = document.getElementById("breadcrumbs");
-              crum.textContent = location;
-              if (catagory != "") crum.textContent += " " + catagory
-            }
 }

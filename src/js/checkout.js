@@ -3,7 +3,7 @@ import checkoutProcess from "./checkoutProcess.mjs";
 
 loadHeaderFooter().then(() => {
   updateCartCount();
-  breadcrumbs("Chechout");
+  breadcrumbs([{name:"Chechout"}]);
 });
 
 checkoutProcess.init("so-cart", ".checkout-summary");
