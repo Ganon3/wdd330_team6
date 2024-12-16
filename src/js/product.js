@@ -16,7 +16,6 @@ const productId = getParam("product");
 // this loads the updateCartCount after the content is loaded
 loadHeaderFooter().then(() => {
   updateCartCount();
-  breadcrumbs("Product", productId);
 });
 
 // this fixes the error handling for the product detail page
@@ -28,6 +27,7 @@ async function loadProductDetails() {
       handleProductNotFound();
       return;
     }
+    breadcrumbs([{name:"Product"}, {name: product.Category.toUpperCase(), location: `/product-list/index.html?category=${product.Category}`}, {name: product.NameWithoutBrand}]);
     // this is from the original Team Activity 2
     productDetails(productId);
 
@@ -73,7 +73,6 @@ function addProductToCart(product) {
       cartItems = cartItems.filter((item) => item.Id !== product.Id && item.Color.ColorCode != product.Color.ColorCode);
       product.Quantity = (existingProduct.Quantity ?? 1) + 1;
     }
-    alertMessage(`${product.NameWithoutBrand} added to cart!`);
   }
 
   cartItems.push(product);

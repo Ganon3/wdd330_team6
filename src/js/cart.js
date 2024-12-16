@@ -6,12 +6,24 @@ import {
   breadcrumbs,
 } from "./utils.mjs";
 import shoppingCart from "./shoppingCart.mjs";
+import { checkLogin } from "./auth.mjs";
 
 // this loads the updateCartCount after the content is loaded
 // took out event listener because it is stable now - km
 loadHeaderFooter().then(() => {
-  renderCartContents();
-  breadcrumbs("Carts");
+  if(window.location.pathname === "/cart/index.html") {
+    
+    renderCartContents();
+    breadcrumbs([{name:"Carts"}]);
+    const token = checkLogin();
+    if(token){
+      document.querySelector("#orderNavBtn").innerText = "| Orders";
+      document.querySelector("#orderNavBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location = "/orders/index.html";
+      })
+    }
+  }
 });
 
 function renderCartContents() {
