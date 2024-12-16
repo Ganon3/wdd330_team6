@@ -192,7 +192,7 @@ describe("loadTemplate", () => {
     expect(html).toBeUndefined();
   });
 });
-
+ 
 describe("loadHeaderFooter", () => {
   beforeEach(() => {
     document.body.innerHTML = `
@@ -202,7 +202,7 @@ describe("loadHeaderFooter", () => {
   });
 
   it("should load templates into header and footer", async () => {
-    const templateHtml = "<div>Header/Footer Content</div>";
+    const templateHtml = `<div><div class="login-header"><a href="/login/index.html"><button id="loginBtn" class="login-btn">Login</button></a></div> Header/Footer Content</div>`;
     global.fetch = vi.fn(() =>
       Promise.resolve({
         ok: true,
