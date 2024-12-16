@@ -14,7 +14,7 @@ productList(".product-list", category).then((result) => {
     //adding quick view event listener
     attachQuickViewListeners(result.products);
     let count = document.querySelectorAll("li").length;
-    breadcrumbs("Products", {category: `${category.toUpperCase()} ${count}`});
+    breadcrumbs([{name:"Products"}, {name: `${category.toUpperCase()} (${count})`}]);
     document.querySelector("#sortSelect").addEventListener("change", (e) => {
       const criteria = e.target.value;
       if(criteria) {

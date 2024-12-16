@@ -5,7 +5,7 @@ import { loadHeaderFooter, updateCartCount, breadcrumbs } from "./utils.mjs";
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {
     updateCartCount();
-    breadcrumbs("Main", {show: false});
+    // breadcrumbs("Main", {show: false});
   });
 });
 
