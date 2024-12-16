@@ -81,7 +81,7 @@ describe("checkLogin", () => {
     checkLogin();
     expect(localStorage.removeItem).toHaveBeenCalledWith("so-token");
     expect(window.location).toBe(
-      `/login/index.html?redirect=${window.location.pathname}`
+      `/dashboard`
     );
   });
 
@@ -91,7 +91,7 @@ describe("checkLogin", () => {
     checkLogin();
     expect(localStorage.removeItem).toHaveBeenCalledWith("so-token");
     expect(window.location).toBe(
-      `/login/index.html?redirect=${window.location.pathname}`
+      `/dashboard`
     );
   });
 });

@@ -48,6 +48,21 @@ export async function loginRequest(user) {
   return response.accessToken;
 }
 
+
+export async function signupRequest(user) {
+  
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  };
+  // name, address, email
+  const response = await fetch(baseURL + "users", options).then(convertToJson);
+  return response.message;
+}
+
 export async function getOrders(token) {
   const options = {
     method: "GET",

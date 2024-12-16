@@ -5,7 +5,7 @@ import { loadHeaderFooter, updateCartCount, breadcrumbs } from "./utils.mjs";
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter().then(() => {
     updateCartCount();
-    breadcrumbs("Main", (show = false));
+    breadcrumbs("Main", {show: false});
   });
 });
 
@@ -48,4 +48,4 @@ async function displayAlerts() {
 
 document.addEventListener("DOMContentLoaded", displayAlerts);
 
-productList(".product-list", "tents");
+// productList(".product-list", "tents");

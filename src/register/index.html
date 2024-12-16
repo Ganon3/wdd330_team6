@@ -5,13 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Login</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/login.js" type="module"></script>
+    <script src="../js/register.js" type="module"></script>
   </head>
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
       <fieldset class="login-form">
-        <legend>Login</legend>
+        <legend>Sign up</legend>
+        <p>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            placeholder="Jone Doe"
+            id="name"
+            value=""
+          />
+        </p>
+        <p>
+          <label for="address">Address</label>
+          <input
+            type="text"
+            placeholder="123 Main St"
+            id="address"
+            value=""
+          />
+        </p>
         <p>
           <label for="email">Email</label>
           <input
@@ -25,8 +43,8 @@
           <label for="password">Password</label>
           <input type="password" placeholder="password" id="password" />
         </p>
-        <button type="submit" class="login-btn" id="loginButton">Login</button>
-        <button class="login-btn" id="registerButton">Sign Up</button>
+        <button type="submit" class="signup" id="registerButton">Sign up</button>
+        <button class="login-btn" id="loginButton">Login</button>
       </fieldset>
     </main>
     <footer id="main-footer"></footer>
